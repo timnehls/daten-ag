@@ -12,5 +12,26 @@
     "title": "About",
     "section": "",
     "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html#anfang",
+    "href": "index.html#anfang",
+    "title": "Start in R",
+    "section": "",
+    "text": "Wir starten einfach.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html#mitte",
+    "href": "index.html#mitte",
+    "title": "Start in R",
+    "section": "Mitte",
+    "text": "Mitte\n\nCode\nNoch etwas Code.\n\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.3     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.3     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n\n\nErklärung\nHier könnte Ihre Erklärung stehen."
+  },
+  {
+    "objectID": "index.html#ende",
+    "href": "index.html#ende",
+    "title": "Start in R",
+    "section": "Ende",
+    "text": "Ende\nDas ist das Ende."
   }
 ]

@@ -2,8 +2,28 @@
 title: "Start in R"
 ---
 
+## Anfang
+
 Wir starten einfach.
 
 ```{r}
 1 + 1
 ```
+
+## Mitte
+
+### Code
+
+Noch etwas Code.
+
+```{r}
+library(tidyverse)
+```
+
+### Erklärung
+
+Hier könnte Ihre Erklärung stehen.
+
+## Ende
+
+Das ist das Ende.
