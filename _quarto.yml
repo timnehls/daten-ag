@@ -8,8 +8,18 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - "01-einfuehrung.qmd"
-      
+  sidebar: 
+    title: "Menü"
+    style: docked
+    search: true
+    collapse-level: 1
+    contents: 
+      - href: index.qmd
+        text: Überblick
+      - text: "---"
+      - href: 01-einfuehrung.qmd
+        text: "1. Einführung in R"
+        
 format:
   html:
     theme: cosmo
