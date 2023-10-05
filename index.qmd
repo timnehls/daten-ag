@@ -1,29 +1,7 @@
 ---
-title: "Start in R"
+title: "Willkommen!"
 ---
 
-## Anfang
+Dies ist die Seite zu meiner Daten-AG, die ich von Januar bis Juni 2024 halten möchte. Das Ziel dieser AG ist es, mithilfe der statistischen Programmiersprache R interessante Fragestellungen zu beantworten. Auf dieser Seite werden nach und nach R-Skripte entstehen, die jeweils in den AG-Stunden erstellt werden.
 
-Wir starten einfach.
-
-```{r}
-1 + 1
-```
-
-## Mitte
-
-### Code
-
-Noch etwas Code.
-
-```{r}
-library(tidyverse)
-```
-
-### Erklärung
-
-Hier könnte Ihre Erklärung stehen.
-
-## Ende
-
-Das ist das Ende.
+Eine erste Einführung findet sich unter "Einführung in R".

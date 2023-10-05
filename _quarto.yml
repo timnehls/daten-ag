@@ -8,8 +8,8 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
-
+      - "01-einfuehrung.qmd"
+      
 format:
   html:
     theme: cosmo

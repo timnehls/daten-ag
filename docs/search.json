@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Start in R",
+    "title": "Willkommen!",
     "section": "",
-    "text": "Wir starten einfach.\n\n1 + 1\n\n[1] 2"
+    "text": "Dies ist die Seite zu meiner Daten-AG, die ich von Januar bis Juni 2024 halten möchte. Das Ziel dieser AG ist es, mithilfe der statistischen Programmiersprache R interessante Fragestellungen zu beantworten. Auf dieser Seite werden nach und nach R-Skripte entstehen, die jeweils in den AG-Stunden erstellt werden.\nEine erste Einführung findet sich unter “Einführung in R”."
   },
   {
     "objectID": "about.html",
