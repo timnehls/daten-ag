@@ -1,5 +1,5 @@
 ---
-title: "pages"
+title: "Home"
 ---
 
 This is a Quarto website.
