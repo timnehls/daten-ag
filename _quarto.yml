@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "pages"
+  title: "Data Science-AG"
   navbar:
     left:
       - href: index.qmd
