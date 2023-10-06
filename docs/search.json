@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Willkommen!",
     "section": "",
-    "text": "Dies ist die Seite zu meiner Daten-AG, die ich von Januar bis Juni 2024 halten möchte. Das Ziel dieser AG ist es, mithilfe der statistischen Programmiersprache R interessante Fragestellungen zu beantworten. Auf dieser Seite werden nach und nach R-Skripte entstehen, die jeweils in den AG-Stunden erstellt werden.\nEine erste Einführung findet sich unter “Einführung in R”."
+    "text": "Dies ist die Seite zu meiner Daten-AG, die ich von Januar bis Juni 2024 halten möchte. Das Ziel dieser AG ist es, mithilfe der statistischen Programmiersprache R interessante Fragestellungen zu beantworten. Auf dieser Seite werden nach und nach R-Skripte entstehen, die jeweils in den AG-Stunden erstellt werden."
   },
   {
     "objectID": "about.html",
@@ -40,5 +40,12 @@
     "title": "Einführung in R",
     "section": "",
     "text": "Under construction!"
+  },
+  {
+    "objectID": "index.html#ablauf",
+    "href": "index.html#ablauf",
+    "title": "Willkommen!",
+    "section": "Ablauf",
+    "text": "Ablauf\n\nUnter “Einführung in R” findet sich ein Video, das die Einrichtung von R erklärt und den Aufbau der Software “RStudio” erläutert.\nÜber die Weihnachtsferien"
   }
 ]
