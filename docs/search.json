@@ -39,13 +39,20 @@
     "href": "01-einfuehrung.html",
     "title": "Einführung in R",
     "section": "",
-    "text": "Under construction!"
+    "text": "Was man machen muss, um mit R arbeiten zu können, hängt davon ab, welches Betriebssystem auf dem Gerät installiert ist.\n\n\nAuf Windows und MacOS müssen wir zwei Programme installieren: zum einen die R-Distribution (das heißt, das Paket, mit dem man R-Code ausführen kann), zum anderen eine Entwicklungsumgebung, in der wir unseren R-Code schreiben können und die uns zahlreiche Hilfsmittel zum Schreiben unseres Codes und zum Anzeigen unserer Ergebnisse bietet.\n\nR-Distribution\nDieses Programm könnt ihr installieren, indem ihr die Seite cran.r-project.org aufruft und dort auf den Link Download R for MacOS bzw. Download R for Windows klickt. Wenn ihr ein MacBook habt, wählt ihr daraufhin die passende Version für euer Gerät aus. Bei Windows klicken wir auf base und dann auf den Downloadlink ganz oben.\nIhr folgt dann den Installationsanweisungen, dabei könnt ihr alles bei den Standardeinstellungen belassen.\nEntwicklungsumgebung\nDamit wir die R-Distribution sinnvoll nutzen können, benötigen wir eine Entwicklungsumgebung."
   },
   {
     "objectID": "index.html#ablauf",
     "href": "index.html#ablauf",
     "title": "Willkommen!",
     "section": "Ablauf",
-    "text": "Ablauf\n\nUnter “Einführung in R” findet sich ein Video, das die Einrichtung von R erklärt und den Aufbau der Software “RStudio” erläutert.\nÜber die Weihnachtsferien"
+    "text": "Ablauf\n\nUnter “Einführung in R” finden sich Videos, die die Einrichtung von R erklären und den Aufbau der Software “RStudio” erläutern. Zudem behandeln wir dort die ersten Schritte im Programmieren mit R."
+  },
+  {
+    "objectID": "01-einfuehrung.html#installation",
+    "href": "01-einfuehrung.html#installation",
+    "title": "Einführung in R",
+    "section": "",
+    "text": "Was man machen muss, um mit R arbeiten zu können, hängt davon ab, welches Betriebssystem auf dem Gerät installiert ist.\n\n\nAuf Windows und MacOS müssen wir zwei Programme installieren: zum einen die R-Distribution (das heißt, das Paket, mit dem man R-Code ausführen kann), zum anderen eine Entwicklungsumgebung, in der wir unseren R-Code schreiben können und die uns zahlreiche Hilfsmittel zum Schreiben unseres Codes und zum Anzeigen unserer Ergebnisse bietet.\n\nR-Distribution\nDieses Programm könnt ihr installieren, indem ihr die Seite cran.r-project.org aufruft und dort auf den Link Download R for MacOS bzw. Download R for Windows klickt. Wenn ihr ein MacBook habt, wählt ihr daraufhin die passende Version für euer Gerät aus. Bei Windows klicken wir auf base und dann auf den Downloadlink ganz oben.\nIhr folgt dann den Installationsanweisungen, dabei könnt ihr alles bei den Standardeinstellungen belassen.\nEntwicklungsumgebung\nDamit wir die R-Distribution sinnvoll nutzen können, benötigen wir eine Entwicklungsumgebung."
   }
 ]
