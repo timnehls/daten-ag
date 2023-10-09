@@ -37,9 +37,9 @@
   {
     "objectID": "01-einfuehrung.html",
     "href": "01-einfuehrung.html",
-    "title": "Einführung in R",
+    "title": "Installation",
     "section": "",
-    "text": "Was nötig ist, um mit R arbeiten zu können, hängt davon ab, welches Betriebssystem auf eurem Gerät installiert ist.\n\n\nAuf Windows und MacOS müssen wir zwei Programme installieren: zum einen die R-Distribution (das heißt, das Paket, mit dem man R-Code ausführen kann), zum anderen eine Entwicklungsumgebung, in der wir unseren R-Code schreiben können und die uns zahlreiche Hilfsmittel zum Schreiben unseres Codes und zum Anzeigen unserer Ergebnisse bietet.\nIn den vergangenen Jahren habe ich einige verschiedene ausprobiert, aber ich bin am Ende immer zu der bekanntesten Software für R zurückgekehrt, nämlich RStudio. RStudio ist eine von der Firma Posit entwickelte grafische Oberfläche, mit der ihr euren R-Code strukturiert schreiben und die Ergebnisse eurer Analyse ansprechend aufbereiten könnt. Natürlich könnt ihr auch andere Programme ausprobieren und benutzen, aber die weiteren Erklärungen sind auf RStudio ausgerichtet.\n\nR-Distribution\nR ist eine frei verfügbare Software und kann somit von jedem kostenlos heruntergeladen werden.\nIhr könnt sie installieren, indem ihr die Seite cran.r-project.org aufruft und dort auf den Link Download R for MacOS bzw. Download R for Windows klickt. Wenn ihr ein MacBook habt, wählt ihr auf dieser Seite die passende Version für euer Gerät aus. Bei Windows klicken wir auf base und dann auf den Downloadlink ganz oben.\nIhr folgt dann den Installationsanweisungen, dabei könnt ihr alles bei den Standardeinstellungen belassen.\nEntwicklungsumgebung\nDamit wir die R-Distribution sinnvoll nutzen können, benötigen wir eine Entwicklungsumgebung, in unserem Fall RStudio.\nUm RStudio zu installieren, geht auf die Seite posit.co/download/rstudio-desktop. Dort seht ihr den Punkt 2: Install RStudio. Es sollte bereits das richtige Betriebssystem vorgewählt sein, ansonsten finden sich darunter noch weitere Installer. Ladet nun durch Klick auf den Button Download RStudio for … das Installationsprogramm herunter und folgt den Installationsanweisungen.\n\nNun sollten sowohl R als auch RStudio auf eurem Gerät installiert sein."
+    "text": "Was nötig ist, um mit R arbeiten zu können, hängt davon ab, welches Betriebssystem auf eurem Gerät installiert ist."
   },
   {
     "objectID": "index.html#ablauf",
@@ -65,14 +65,49 @@
   {
     "objectID": "01-einfuehrung.html#ipads-und-android-tablets",
     "href": "01-einfuehrung.html#ipads-und-android-tablets",
-    "title": "Einführung in R",
+    "title": "Installation",
     "section": "iPads und Android-Tablets",
     "text": "iPads und Android-Tablets\nAuch auf einem iPad oder einem Android-Tablet kann man mit R programmieren, auch wenn das ohne Tastatur und Maus wahrscheinlich schwierig ist. Sollte es so sein, dass ihr keinen Zugang zu einem Laptop habt, ist dies jedoch eine mögliche Lösung:\nWir installieren kein Programm auf unserem Gerät. Stattdessen erstellen wir ein Benutzerkonto bei Posit, dem Anbieter von RStudio. Auf diese Weise können wir, wenn auch nur mit beschränkter Rechenzeit, in unserem Browser programmieren. Hierzu geht ihr auf die Seite von Posit, posit.cloud, und klickt dort auf Get started. Wählt den kostenlosen Plan (Cloud Free) aus und registriert euch dann unter Sign up. Wenn das geklappt hat, solltet ihr bereit sein, um in R zu programmieren."
   },
   {
     "objectID": "01-einfuehrung.html#linux",
     "href": "01-einfuehrung.html#linux",
-    "title": "Einführung in R",
+    "title": "Installation",
+    "section": "Linux",
+    "text": "Linux\nSolltet ihr eine Linux-Distribution auf eurem Laptop installiert haben, dann findet ihr auf YouTube sowie mit einer kurzen Internetrecherche zahlreiche Anleitungen, wie ihr R auf eurer Plattform installieren könnt. Ich gehe nicht näher auf diesen Fall ein, da man je nach Distribution unterschiedlich verfahren muss und ich dem geneigten Linux-Nutzer unterstelle, selbst in der Lage zu sein, die Installation durchzuführen."
+  },
+  {
+    "objectID": "01-einfuehrung.html#windows-und-macos",
+    "href": "01-einfuehrung.html#windows-und-macos",
+    "title": "Installation",
+    "section": "Windows und MacOS",
+    "text": "Windows und MacOS\nAuf Windows und MacOS müssen wir zwei Programme installieren: zum einen die R-Distribution (das heißt, das Paket, mit dem man R-Code ausführen kann), zum anderen eine Entwicklungsumgebung, in der wir unseren R-Code schreiben können und die uns zahlreiche Hilfsmittel zum Schreiben unseres Codes und zum Anzeigen unserer Ergebnisse bietet.\nIn den vergangenen Jahren habe ich einige verschiedene ausprobiert, aber ich bin am Ende immer zu der bekanntesten Software für R zurückgekehrt, nämlich RStudio. RStudio ist eine von der Firma Posit entwickelte grafische Oberfläche, mit der ihr euren R-Code strukturiert schreiben und die Ergebnisse eurer Analyse ansprechend aufbereiten könnt. Natürlich könnt ihr auch andere Programme ausprobieren und benutzen, aber die weiteren Erklärungen sind auf RStudio ausgerichtet.\n\nR-Distribution\nR ist eine frei verfügbare Software und kann somit von jedem kostenlos heruntergeladen werden.\nIhr könnt sie installieren, indem ihr die Seite cran.r-project.org aufruft und dort auf den Link Download R for MacOS bzw. Download R for Windows klickt. Wenn ihr ein MacBook habt, wählt ihr auf dieser Seite die passende Version für euer Gerät aus. Bei Windows klicken wir auf base und dann auf den Downloadlink ganz oben.\nIhr folgt dann den Installationsanweisungen, dabei könnt ihr alles bei den Standardeinstellungen belassen.\nEntwicklungsumgebung\nDamit wir die R-Distribution sinnvoll nutzen können, benötigen wir eine Entwicklungsumgebung, in unserem Fall RStudio.\nUm RStudio zu installieren, geht auf die Seite posit.co/download/rstudio-desktop. Dort seht ihr den Punkt 2: Install RStudio. Es sollte bereits das richtige Betriebssystem vorgewählt sein, ansonsten finden sich darunter noch weitere Installer. Ladet nun durch Klick auf den Button Download RStudio for … das Installationsprogramm herunter und folgt den Installationsanweisungen.\n\nNun sollten sowohl R als auch RStudio auf eurem Gerät installiert sein."
+  },
+  {
+    "objectID": "01-installation.html",
+    "href": "01-installation.html",
+    "title": "1.1 Installation",
+    "section": "",
+    "text": "Was nötig ist, um mit R arbeiten zu können, hängt davon ab, welches Betriebssystem auf eurem Gerät installiert ist."
+  },
+  {
+    "objectID": "01-installation.html#windows-und-macos",
+    "href": "01-installation.html#windows-und-macos",
+    "title": "1.1 Installation",
+    "section": "Windows und MacOS",
+    "text": "Windows und MacOS\nAuf Windows und MacOS müssen wir zwei Programme installieren: zum einen die R-Distribution (das heißt, das Paket, mit dem man R-Code ausführen kann), zum anderen eine Entwicklungsumgebung, in der wir unseren R-Code schreiben können und die uns zahlreiche Hilfsmittel zum Schreiben unseres Codes und zum Anzeigen unserer Ergebnisse bietet.\nIn den vergangenen Jahren habe ich einige verschiedene ausprobiert, aber ich bin am Ende immer zu der bekanntesten Software für R zurückgekehrt, nämlich RStudio. RStudio ist eine von der Firma Posit entwickelte grafische Oberfläche, mit der ihr euren R-Code strukturiert schreiben und die Ergebnisse eurer Analyse ansprechend aufbereiten könnt. Natürlich könnt ihr auch andere Programme ausprobieren und benutzen, aber die weiteren Erklärungen sind auf RStudio ausgerichtet.\n\nR-Distribution\nR ist eine frei verfügbare Software und kann somit von jedem kostenlos heruntergeladen werden.\nIhr könnt sie installieren, indem ihr die Seite cran.r-project.org aufruft und dort auf den Link Download R for MacOS bzw. Download R for Windows klickt. Wenn ihr ein MacBook habt, wählt ihr auf dieser Seite die passende Version für euer Gerät aus. Bei Windows klicken wir auf base und dann auf den Downloadlink ganz oben.\nFolgt dann den Installationsanweisungen, dabei könnt ihr alles bei den Standardeinstellungen belassen.\nEntwicklungsumgebung\nDamit wir die R-Distribution sinnvoll nutzen können, benötigen wir eine Entwicklungsumgebung, in unserem Fall RStudio.\nUm RStudio zu installieren, geht auf die Seite posit.co/download/rstudio-desktop. Dort seht ihr den Punkt 2: Install RStudio. Es sollte bereits das richtige Betriebssystem vorgewählt sein, ansonsten finden sich darunter noch weitere Installer. Ladet nun durch Klick auf den Button Download RStudio for … das Installationsprogramm herunter und folgt den Installationsanweisungen.\n\nNun sollten sowohl R als auch RStudio auf eurem Gerät installiert sein."
+  },
+  {
+    "objectID": "01-installation.html#ipads-und-android-tablets",
+    "href": "01-installation.html#ipads-und-android-tablets",
+    "title": "1.1 Installation",
+    "section": "iPads und Android-Tablets",
+    "text": "iPads und Android-Tablets\nAuch auf einem iPad oder einem Android-Tablet kann man mit R programmieren, auch wenn das ohne Tastatur und Maus wahrscheinlich schwierig ist. Sollte es so sein, dass ihr keinen Zugang zu einem Laptop habt, ist dies jedoch eine mögliche Lösung:\nWir installieren kein Programm auf unserem Gerät. Stattdessen erstellen wir ein Benutzerkonto bei Posit, dem Anbieter von RStudio. Auf diese Weise können wir, wenn auch nur mit beschränkter Rechenzeit, in unserem Browser programmieren. Hierzu geht ihr auf die Seite von Posit, posit.cloud, und klickt dort auf Get started. Wählt den kostenlosen Plan (Cloud Free) aus und registriert euch dann unter Sign up. Wenn das geklappt hat, solltet ihr bereit sein, um in R zu programmieren."
+  },
+  {
+    "objectID": "01-installation.html#linux",
+    "href": "01-installation.html#linux",
+    "title": "1.1 Installation",
     "section": "Linux",
     "text": "Linux\nSolltet ihr eine Linux-Distribution auf eurem Laptop installiert haben, dann findet ihr auf YouTube sowie mit einer kurzen Internetrecherche zahlreiche Anleitungen, wie ihr R auf eurer Plattform installieren könnt. Ich gehe nicht näher auf diesen Fall ein, da man je nach Distribution unterschiedlich verfahren muss und ich dem geneigten Linux-Nutzer unterstelle, selbst in der Lage zu sein, die Installation durchzuführen."
   }

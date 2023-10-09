@@ -1,12 +1,10 @@
 ---
-title: "Einführung in R"
+title: "1.1 Installation"
 ---
-
-## Installation
 
 Was nötig ist, um mit R arbeiten zu können, hängt davon ab, welches Betriebssystem auf eurem Gerät installiert ist.
 
-### Windows und MacOS
+## Windows und MacOS
 
 Auf Windows und MacOS müssen wir zwei Programme installieren: zum einen die R-Distribution (das heißt, das Paket, mit dem man R-Code ausführen kann), zum anderen eine Entwicklungsumgebung, in der wir unseren R-Code schreiben können und die uns zahlreiche Hilfsmittel zum Schreiben unseres Codes und zum Anzeigen unserer Ergebnisse bietet.
 
@@ -18,7 +16,7 @@ In den vergangenen Jahren habe ich einige verschiedene ausprobiert, aber ich bin
 
     Ihr könnt sie installieren, indem ihr die Seite [cran.r-project.org](https://cran.r-project.org) aufruft und dort auf den Link *Download R for MacOS* bzw. *Download R for Windows* klickt. Wenn ihr ein MacBook habt, wählt ihr auf dieser Seite die passende Version für euer Gerät aus. Bei Windows klicken wir auf *base* und dann auf den Downloadlink ganz oben.
 
-    Ihr folgt dann den Installationsanweisungen, dabei könnt ihr alles bei den Standardeinstellungen belassen.
+    Folgt dann den Installationsanweisungen, dabei könnt ihr alles bei den Standardeinstellungen belassen.
 
 2.  **Entwicklungsumgebung**
 
@@ -32,7 +30,7 @@ Nun sollten sowohl R als auch RStudio auf eurem Gerät installiert sein.
 
 Auch auf einem iPad oder einem Android-Tablet kann man mit R programmieren, auch wenn das ohne Tastatur und Maus wahrscheinlich schwierig ist. Sollte es so sein, dass ihr keinen Zugang zu einem Laptop habt, ist dies jedoch eine mögliche Lösung:
 
-Wir installieren kein Programm auf unserem Gerät. Stattdessen erstellen wir ein Benutzerkonto bei Posit, dem Anbieter von RStudio. Auf diese Weise können wir, wenn auch nur mit beschränkter Rechenzeit, in unserem Browser programmieren. Hierzu geht ihr auf die Seite von Posit, [posit.cloud](https://posit.cloud), und klickt dort auf *Get started*. Wählt den kostenlosen Plan (*Cloud Free*) aus und registriert euch dann unter *Sign up*. Wenn das geklappt hat, solltet ihr bereit sein, um in R zu programmieren.
+Wir installieren kein Programm auf unserem Gerät. Stattdessen erstellen wir ein Benutzerkonto bei Posit, dem Anbieter von RStudio. Auf diese Weise können wir, wenn auch nur mit beschränkter Rechenzeit, in unserem Browser programmieren. Hierzu geht ihr auf die Seite von Posit, [posit.cloud](https://posit.cloud), und klickt dort auf *Get started*. Wählt den kostenlosen Plan (Cloud Free) aus und registriert euch dann unter *Sign up*. Wenn das geklappt hat, solltet ihr bereit sein, um in R zu programmieren.
 
 ## Linux
 

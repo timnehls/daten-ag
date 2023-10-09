@@ -17,8 +17,9 @@ website:
       - href: index.qmd
         text: Überblick
       - text: "---"
-      - href: 01-einfuehrung.qmd
-        text: "1. Einführung in R"
+      - section: "1. Einführung in R"
+        contents:
+        - href: 01-installation.qmd
         
 format:
   html:
