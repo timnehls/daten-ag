@@ -16,14 +16,10 @@ website:
         href: "mailto:mail@timnehls.de"
       - icon: github
         text: GitHub Repository
-        menu:
-          - text: Sourcecode
-            href: "https://github.com/timnehls/ag-website"
-          - text: Einen Fehler melden
-            href: "https://github.com/timnehls/ag-website/issues"
+        href: "https://github.com/timnehls/ag-website"
   sidebar: 
     title: "Menü"
-    style: docked
+    style: floating
     search: true
     collapse-level: 1
     contents: 
@@ -33,7 +29,10 @@ website:
       - section: "1. Einführung in R"
         contents:
         - href: 01-installation.qmd
-        
+  reader-mode: true 
+  repo-url: "https://github.com/timnehls/ag-website"
+  repo-actions: [edit, issue]
+  
 format:
   html:
     theme: cosmo
