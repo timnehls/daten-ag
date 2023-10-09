@@ -6,4 +6,4 @@ Dies ist die Seite zu meiner Daten-AG, die ich von Januar bis Juni 2024 halten m
 
 ## Ablauf
 
--   Unter "Einführung in R" finden sich Videos, die die Einrichtung von R erklären und den Aufbau der Software "RStudio" erläutern. Zudem behandeln wir dort die ersten Schritte im Programmieren mit R.
+-   Unter "Einführung in R" finden sich Anleitungen, die die Einrichtung von R erklären und den Aufbau der Software "RStudio" erläutern. Zudem behandeln wir dort die ersten Schritte im Programmieren mit R.

@@ -3,11 +3,24 @@ project:
   output-dir: docs
 
 website:
-  title: "Data Science-AG"
+  title: "Daten-AG"
   navbar:
+    background: none
+    search: false
     left:
       - href: index.qmd
         text: Home
+    tools:
+      - icon: envelope-at
+        text: Eine Frage stellen
+        href: "mailto:mail@timnehls.de"
+      - icon: github
+        text: GitHub Repository
+        menu:
+          - text: Sourcecode
+            href: "https://github.com/timnehls/ag-website"
+          - text: Einen Fehler melden
+            href: "https://github.com/timnehls/ag-website/issues"
   sidebar: 
     title: "Menü"
     style: docked
