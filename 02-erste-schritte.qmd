@@ -1,0 +1,30 @@
+---
+title: "1.2 Erste Schritte in RStudio"
+---
+
+Auf dieser Seite findet ihr drei Videos, die euch mit den Grundfunktionen von R und RStudio vertraut machen sollen.
+
+## Hauptfenster und Konsole
+
+{{< video https://youtu.be/ZyKTJu7TejY >}}
+
+## Skripte erstellen
+
+{{< video https://youtu.be/KTfgZb-_p-o >}}
+
+## Packages
+
+{{< video https://youtu.be/hkbz4JyosZ4 >}}
+
+Der Code, der im Video verwendet wurde:
+
+```{r}
+#| eval: false
+library(ggplot2)
+
+mtcars
+
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  geom_smooth(method = lm)
+```
