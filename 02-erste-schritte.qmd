@@ -16,6 +16,8 @@ Auf dieser Seite findet ihr drei Videos, die euch mit den Grundfunktionen von R 
 
 {{< video https://youtu.be/hkbz4JyosZ4 >}}
 
+------------------------------------------------------------------------
+
 Der Code, der im Video verwendet wurde:
 
 ```{r}
