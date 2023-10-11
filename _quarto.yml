@@ -29,6 +29,7 @@ website:
       - section: "1. Einführung in R"
         contents:
         - href: 01-installation.qmd
+        - href: 02-erste-schritte.qmd
   repo-url: "https://github.com/timnehls/ag-website"
   repo-actions: [edit, issue]
   reader-mode: false
