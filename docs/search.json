@@ -130,6 +130,20 @@
     "href": "02-erste-schritte.html#packages",
     "title": "1.2 Erste Schritte in RStudio",
     "section": "Packages",
-    "text": "Packages\n\n\nlibrary(ggplot2)\n\nmtcars\n\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point() +\n  geom_smooth(method = lm)"
+    "text": "Packages\n\nDer Code, der im Video verwendet wurde:\n\nlibrary(ggplot2)\n\nmtcars\n\nggplot(mtcars, aes(x = wt, y = mpg)) +\n  geom_point() +\n  geom_smooth(method = lm)"
+  },
+  {
+    "objectID": "02-erste-schritte.html",
+    "href": "02-erste-schritte.html",
+    "title": "1.2 Erste Schritte in RStudio",
+    "section": "",
+    "text": "Auf dieser Seite findet ihr drei Videos, die euch mit den Grundfunktionen von R und RStudio vertraut machen sollen."
+  },
+  {
+    "objectID": "02-erste-schritte.html#hauptfenster-und-konsole",
+    "href": "02-erste-schritte.html#hauptfenster-und-konsole",
+    "title": "1.2 Erste Schritte in RStudio",
+    "section": "Hauptfenster und Konsole",
+    "text": "Hauptfenster und Konsole"
   }
 ]
