@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Willkommen!",
     "section": "",
-    "text": "Dies ist die Seite zu meiner Daten-AG, die ich von Januar bis Juni 2024 halten möchte. Das Ziel dieser AG ist es, mithilfe der statistischen Programmiersprache R interessante Fragestellungen zu beantworten. Auf dieser Seite werden nach und nach R-Skripte entstehen, die jeweils in den AG-Stunden erstellt werden."
+    "text": "Dies ist die Seite zu meiner Daten-AG, die ich von Januar bis Juni 2024 halten möchte. Auf dieser Seite werden nach und nach R-Skripte entstehen, die jeweils in den AG-Stunden erstellt werden."
   },
   {
     "objectID": "about.html",
@@ -145,5 +145,12 @@
     "title": "1.2 Erste Schritte in RStudio",
     "section": "Hauptfenster und Konsole",
     "text": "Hauptfenster und Konsole"
+  },
+  {
+    "objectID": "index.html#zielsetzung",
+    "href": "index.html#zielsetzung",
+    "title": "Willkommen!",
+    "section": "Zielsetzung",
+    "text": "Zielsetzung\nDas Ziel dieser AG ist es, mithilfe der statistischen Programmiersprache R interessante Fragestellungen zu beantworten. Dabei sollen die Schülerinnen und Schüler einerseits lernen, in R zu programmieren und diese Fähigkeit auf reale Datensätze anwenden, andererseits Methoden und Ergebnisse kritisch zu hinterfragen und somit zu neuen, datenbasierten Erkenntnissen gelangen."
   }
 ]
