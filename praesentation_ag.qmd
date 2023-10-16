@@ -1,0 +1,62 @@
+---
+format: revealjs
+---
+
+# Data Science-AG
+
+# Was machen wir?
+
+-   Datenanalyse
+
+-   Dazu brauchen wir zwei Dinge:
+
+    -   Daten
+
+    -   Eine Programmiersprache (R)\
+        \
+
+# Welche Daten?
+
+-   Wetterdaten vom DWD
+
+-   Datensätze von [Kaggle](https://www.kaggle.com)
+
+    -   Testergebnisse von Schulen (USA)
+
+    -   European Social Survey (EU)
+
+    -   Immobilieninserate (D)\
+
+# Welche Daten?
+
+-   Datensätze von [Kaggle](https://www.kaggle.com)
+
+    -   Pew Research Center-Befragungen (USA)
+
+    -   Coronadaten (D/EU)
+
+<!-- -->
+
+-   Daten zu ESC-Teilnehmersongs (GitHub)
+
+-   und viele mehr
+
+# Wieso R?
+
+-   Statistische Programmiersprache
+
+-   zahlreiche Packages
+
+-   im akademischen Bereich häufig genutzt
+
+-   Open-Source
+
+-   Handhabe von Daten ("Data Wrangling") deutlich einfacher als in Python
+
+# Was jetzt?
+
+-   [Website](https://timnehls.github.io/daten-ag) für die AG ist bereits verfügbar
+
+-   Plan: Start nach den Weihnachtsferien
+
+-   Eigene Projekte am Ende des Schuljahres
