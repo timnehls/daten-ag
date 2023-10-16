@@ -2,7 +2,7 @@
 title: "Willkommen!"
 ---
 
-Dies ist die Seite zu meiner Daten-AG, die ich von Januar bis Juni 2024 halten möchte. Auf dieser Seite werden nach und nach R-Skripte entstehen, die jeweils in den AG-Stunden erstellt werden.
+Dies ist die Seite zu meiner Data Science-AG, die ich von Januar bis Juni 2024 halten möchte. Auf dieser Seite werden nach und nach R-Skripte entstehen, die jeweils in den AG-Stunden erstellt werden.
 
 ## Zielsetzung
 
