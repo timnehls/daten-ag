@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Data Science"
+  title: "Data Science-AG"
   navbar:
     background: none
     search: false
