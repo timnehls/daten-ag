@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Willkommen!",
     "section": "",
-    "text": "Dies ist die Seite zu meiner Daten-AG, die ich von Januar bis Juni 2024 halten möchte. Auf dieser Seite werden nach und nach R-Skripte entstehen, die jeweils in den AG-Stunden erstellt werden."
+    "text": "Dies ist die Seite zu meiner Data Science-AG, die ich von Januar bis Juni 2024 halten möchte. Auf dieser Seite werden nach und nach R-Skripte entstehen, die jeweils in den AG-Stunden erstellt werden."
   },
   {
     "objectID": "about.html",
@@ -152,5 +152,12 @@
     "title": "Willkommen!",
     "section": "Zielsetzung",
     "text": "Zielsetzung\nDas Ziel dieser AG ist es, mithilfe der statistischen Programmiersprache R interessante Fragestellungen zu beantworten. Dabei sollen die Schülerinnen und Schüler einerseits lernen, in R zu programmieren und diese Fähigkeit auf reale Datensätze anwenden, andererseits Methoden und Ergebnisse kritisch zu hinterfragen und somit zu neuen, datenbasierten Erkenntnissen gelangen."
+  },
+  {
+    "objectID": "praesentation_ag.html",
+    "href": "praesentation_ag.html",
+    "title": "Data Science-AG",
+    "section": "",
+    "text": "Data Science-AG\n\n\nWas machen wir?\n\nDatenanalyse\nDazu brauchen wir zwei Dinge:\n\nDaten\nEine Programmiersprache (R)\n\n\n\n\n\n\nWelche Daten?\n\nWetterdaten vom DWD\nDatensätze von Kaggle\n\nTestergebnisse von Schulen (USA)\nEuropean Social Survey (EU)\nImmobilieninserate (D)\n\n\n\n\n\nWelche Daten?\n\nDatensätze von Kaggle\n\nPew Research Center-Befragungen (USA)\nCoronadaten (D/EU)\n\n\n\n\nDaten zu ESC-Teilnehmersongs (GitHub)\nund viele mehr\n\n\n\nWieso R?\n\nStatistische Programmiersprache\nzahlreiche Packages\nim akademischen Bereich häufig genutzt\nOpen-Source\nHandhabe von Daten (“Data Wrangling”) deutlich einfacher als in Python\n\n\n\nWas jetzt?\n\nWebsite für die AG ist bereits verfügbar\nPlan: Start nach den Weihnachtsferien\nEigene Projekte am Ende des Schuljahres"
   }
 ]
