@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-datenstrukturen.html">2. Grundbegriffe</a></li><li class="breadcrumb-item"><a href="./04-funktionen-und-schleifen.html">2.2 Schleifen und Funktionen</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03-datenstrukturen.html">2. Grundbegriffe</a></li><li class="breadcrumb-item"><a href="./03-datenstrukturen.html">2.1 Datentypen und Datenstrukturen</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -211,6 +211,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
 <li><a href="#vektor" id="toc-vektor" class="nav-link" data-scroll-target="#vektor">Vektor</a></li>
   <li><a href="#dataframe-und-tibble" id="toc-dataframe-und-tibble" class="nav-link" data-scroll-target="#dataframe-und-tibble">Dataframe und Tibble</a></li>
+  <li><a href="#liste" id="toc-liste" class="nav-link" data-scroll-target="#liste">Liste</a></li>
   </ul>
 </li>
   </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/timnehls/ag-website/edit/main/03-datenstrukturen.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/timnehls/ag-website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -526,7 +527,7 @@ Lotus Europa   30.4   4 95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 </div>
 <div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Unübersichtlich und fehleranfällig!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Stattdessen führen wir den sogenannten <code>Pipe</code>-Operator (geschrieben <code>%&gt;%</code>) als neue Schreibweise an. Man kann sich seine Funktion so vorstellen, dass er alles, was auf der linken Seite von ihm steht, nimmt und dem, was auf der rechten Seite steht, übergibt. Wir wollen den vorherigen Codeblock einfacher schreiben:</p>
+<p>Stattdessen führen wir den sogenannten <code>Pipe</code>-Operator (geschrieben <code>%&gt;%</code>) als neue Schreibweise ein. Man kann sich seine Funktion so vorstellen, dass er alles, was auf der linken Seite von ihm steht, nimmt und dem, was auf der rechten Seite steht, übergibt. Wir wollen den vorherigen Codeblock einfacher schreiben:</p>
 <div class="cell">
 <div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Lesen von links nach rechts:</span></span>
 <span><span class="va">mtcars</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>                     <span class="co"># Wir nehmen das mtcars-Datenset...</span></span>
@@ -543,7 +544,20 @@ Lotus Europa   30.4   4 95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 4 Lotus Europa  30.4     4  95.1   113  3.77  1.51  16.9     1     1     5     2</code></pre>
 </div>
 </div>
-<p>Viel einfacher lesbar, oder?</p>
+<p>Viel einfacher lesbar, oder? Wir werden diese Datenstruktur sehr häufig nutzen, eben weil wir diese Funktionen anwenden können.</p>
+<section id="aufgabe-1" class="level4"><h4 class="anchored" data-anchor-id="aufgabe-1">Aufgabe 1</h4>
+<p>Wähle alle <em>außer</em> den ersten 15 Autos aus (<code><a href="https://dplyr.tidyverse.org/reference/slice.html">?slice</a></code> in die Konsole einzugeben könnte hilfreich sein, schaue dort nach einem Weg, Zeilen auszuschließen) und filtere dann nach den Autos mit mindestens 6 Zylindern. Sortiere dann die Autos nach Meilen pro Gallone (absteigend; <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">?arrange</a></code> könnte hilfreich sein, schaue dort unter den Beispielen nach einem Weg, absteigend zu sortieren). Zeige nur die Namen der Autos, die Meilen pro Gallone, die Zylinder und die PS an (<code><a href="https://dplyr.tidyverse.org/reference/select.html">?select</a></code> könnte hilfreich sein).</p>
+<div class="cell">
+<details><summary>Lösung</summary><div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mtcars_tibble</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>                  <span class="co"># Tibble auswählen</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice</a></span><span class="op">(</span><span class="op">-</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">15</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>               <span class="co"># Alle außer den ersten 15 Zeilen auswählen</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">cyl</span> <span class="op">&gt;=</span> <span class="fl">6</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>             <span class="co"># Alle Autos mit mindestens 6 Zylindern</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span><span class="op">(</span><span class="va">mpg</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>           <span class="co"># Autos nach Meilen pro Gallone sortieren</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">rowname</span>, <span class="va">mpg</span>, <span class="va">cyl</span>, <span class="va">hp</span><span class="op">)</span>    <span class="co"># Nur Name, MPG, Zylinder, PS anzeigen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="aufgabe-2" class="level4"><h4 class="anchored" data-anchor-id="aufgabe-2">Aufgabe 2</h4>
+<p><em>TODO</em></p>
+</section></section><section id="liste" class="level3"><h3 class="anchored" data-anchor-id="liste">Liste</h3>
 
 
 </section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
