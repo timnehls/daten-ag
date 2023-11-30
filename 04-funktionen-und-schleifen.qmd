@@ -98,3 +98,5 @@ for (i in 1:length(x)) {
 # y besteht aus allen Quadratzahlen von 1 bis 50.
 y
 ```
+
+### Funktionen
