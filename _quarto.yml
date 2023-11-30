@@ -29,6 +29,7 @@ website:
         contents:
         - 01-installation.qmd
         - 02-erste-schritte.qmd
+      - text: "---"
       - section: "2. Grundbegriffe"
         contents: 
         - 03-datenstrukturen.qmd
