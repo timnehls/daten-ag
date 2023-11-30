@@ -38,6 +38,10 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
+    code-overflow: wrap
+    code-link: true
+    highlight-style: kate
+    code-block-bg: "#fefaf1"
 
 editor: visual
 

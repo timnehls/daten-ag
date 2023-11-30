@@ -1,0 +1,243 @@
+---
+title: "2.1 Datentypen und Datenstrukturen"
+---
+
+Nachdem wir uns mit RStudio vertraut gemacht haben, kommen wir nun zur ersten wirklichen inhaltlichen Auseinandersetzung mit R, nämlich mit Datentypen und Datenstrukturen. Wir wollen verstehen, welche es gibt und wie diese funktionieren, um sie in unserer Datenanalyse später benutzen zu können.
+
+## Datentypen
+
+### Numeric
+
+Der Datentyp numeric beinhaltet alle reellen Zahlen. Zusätzlich werden alle ganzen Zahlen standardmäßig als numeric klassifiziert.
+
+Dies können wir im folgenden Beispiel sehen:
+
+```{r}
+ganzzahl <- 1
+dezimalzahl <- 1.0
+
+class(ganzzahl)
+
+class(dezimalzahl)
+
+ganzzahl == dezimalzahl
+```
+
+### Character
+
+Der Datentyp character beschreibt Wörter, Sätze; alles, was man mit Zahlen und Buchstaben zusammenfügen kann.
+
+```{r}
+text <- "Wir lernen R."
+
+class(text)
+
+text_kopie <- "Wir lernen R."
+
+text == text_kopie
+```
+
+### Logical
+
+Der Datentyp logical beinhaltet die Werte TRUE und FALSE (wahr und falsch). Sie können auch mit T und F abgekürzt werden. Man kann mit TRUE und FALSE auch rechnen, TRUE hat hierbei den Wert 1, FALSE den Wert 0.
+
+```{r}
+wahr <- TRUE
+falsch <- FALSE
+
+wahr_kurz <- T
+falsch_kurz <- F
+
+wahr == wahr_kurz
+
+falsch == falsch_kurz
+
+wahr + falsch
+```
+
+### Weniger wichtige Datentypen
+
+#### Integer
+
+Der Datentyp integer enthält alle ganzen Zahlen. Integer werden mit einem `L` hinter der Zahl gekennzeichnet.
+
+```{r}
+ganzzahl <- 1L
+
+class(ganzzahl)
+
+andere_ganzzahl <- 2L
+
+summe <- ganzzahl + andere_ganzzahl
+
+class(summe)
+
+# In der Konsole wird das 'L' nicht mit ausgegeben!
+ganzzahl
+```
+
+#### Complex
+
+Dieser Datentyp beinhaltet alle komplexen Zahlen.
+
+```{r}
+komplexe_zahl <- 1i + 1
+
+class(komplexe_zahl)
+
+andere_komplexe_zahl <- 9i + 3
+
+komplexe_zahl + andere_komplexe_zahl
+```
+
+## Datenstrukturen
+
+Wir können mit Variablen aus den oben angegebenen Datentypen sehr gut einfache Rechnungen und Vergleiche durchführen. Um aber effizient zu arbeiten und unsere Daten zu verwalten, braucht es Strukturen, in denen wir Variablen speichern und modifizieren können.
+
+### Vektor
+
+Die wohl wichtigste Datenstruktur in R ist der *Vektor*. Vektoren sind Ansammlungen von Variablen eines bestimmten Datentyps. Ein Beispiel ist der Vektor $\vec{x}=\pmatrix{1 \\ 2 \\ 3}$, der die Zahlen 1, 2, und 3 enthält.
+
+Wir erstellen oder *initialisieren* einen Vektor mit der `c()`-Funktion:
+
+```{r}
+# Vektor initialisieren
+x <- c(1, 2, 3)
+
+# Vektor ausgeben
+x
+```
+
+Wenn wir auf Elemente im Vektor zugreifen wollen, dann machen wir das durch eckige Klammern hinter dem Namen des Vektors:
+
+```{r}
+# R beginnt bei der Zählung mit der 1.
+x[1]        # 1. Element
+x[-1]       # alle außer dem 1. Element
+x[1:2]      # alle Elemente vom 1. bis zum 2.
+x[c(1, 3)]  # alle Elemente, deren Index im Vektor (1,3) enthalten ist
+```
+
+Wir können mit Vektoren ganz normal rechnen (Zeile für Zeile):
+
+```{r}
+x * 3
+
+# Neuer Vektor
+y <- c(3, 4, 5)
+
+# Zeilenweise Addition/Subtraktion
+x + y
+x - y
+
+
+# Für alle, die schon Vektoren behandelt haben:
+# Betrag eines Vektors
+# type = "2" steht für die sogenannte "2-Norm" (die euklidische Norm)
+norm(x, type = "2")
+```
+
+Wir können verschiedene "Maße" des Vektors nehmen:
+
+```{r}
+length(x)   # Dimension oder "Länge" des Vektors
+mean(x)     # Mittelwert des Vektors
+sum(x)      # Summe der Einträge des Vektors
+```
+
+#### Aufgabe
+
+Gib den kleinsten und den größten Eintrag sowie den Median von `x` an!
+
+```{r}
+#| code-fold: true
+#| code-summary: "Lösung"
+#| eval: false
+
+min(x)
+max(x)
+median(x)
+```
+
+### Dataframe und Tibble
+
+Für diesen Teil und auch darüber hinaus benötigen wir die `tidyverse`-Library. Es bietet zahlreiche nützliche Features, die uns beim Codeschreiben viel Arbeit abnehmen und unseren Code besser lesbar machen werden.
+
+Wenn ihr diese Library noch nicht installiert habt, dann geht das mit dem folgenden Befehl in eurer Konsole:
+
+```{r}
+#| eval: false
+install.packages("tidyverse")
+```
+
+Wir laden nun die `tidyverse`-Library in unseren Arbeitsbereich, indem wir folgenden Code benutzen:
+
+```{r}
+#| output: false
+library(tidyverse)
+```
+
+Dataframes bzw. *Tibbles* sind ähnlich wie Tabellen: Sie speichern geordnet Daten. Dabei sind in den Zeilen die verschiedenen Einträge angeordnet, und in den Spalten finden sich Variablen für jeden dieser Einträge.
+
+Wir rufen nun das `mtcars`-Datenset auf, eines der bekanntesten Datensets in R, auf das auch ohne weitere Pakete direkt zugegriffen werden kann. Das `mtcars`-Datenset enthält Daten zu einigen (älteren) Autos. Die Beschreibung dieses Datensets finden wir, indem wir `?mtcars` in die Konsole eingeben.
+
+```{r}
+# Um nur die obersten Einträge eines Datensets auszugeben,
+# benutzen wir die head()-Funktion
+head(mtcars)
+```
+
+Wir erhalten eine Übersicht über die ersten Autos und ihre Spezifikationen. Doch wie wir im Einführungskapitel gesehen haben, ist das nicht das Einzige, was wir mit *Dataframes* oder *Tibbles* machen können.
+
+Wir wollen nun alle Autos mit mehr als 30 Meilen pro Gallone Benzin ausgeben. Hierbei können wir mit dem Dollarzeichen auf einzelne Spalten zugreifen, und ähnlich wie bei Vektoren benutzen wir eckige Klammern, um auf einzelne Elemente zuzugreifen. Die Schreibweise hierbei ist wie folgt: `Datenset[Bedingung für Zeilen, Bedingung für Spalten]`. Da wir hier die Zeilen (Autos) mit mehr als 30 Meilen pro Gallone ausgeben wollen, füllen wir diese Bedingung in die *Bedingung für Zeilen* ein und erhalten das gewünschte Ergebnis.
+
+```{r}
+mtcars[mtcars$mpg > 30, ]
+```
+
+Das ist aber bei mehreren Bedingungen, oder wenn wir diesen Filter in eine Folge aus Operationen einbinden wollen, ziemlich schwer zu schreiben und vor allem zu lesen. Deswegen überführen wir dieses Datenset mit der `as_tibble()`-Funktion in einen *Tibble*, auf dem wir viel einfacher filtern und später auch Daten entfernen, zusammenfügen usw. können. Für diese Funktion muss nun das `tidyverse`-Paket installiert sein (s.o.).
+
+```{r}
+mtcars_tibble <- as_tibble(mtcars)
+```
+
+Schauen wir uns diesen Tibble mal an:
+
+```{r}
+mtcars_tibble
+```
+
+Komisch, die Autonamen sind weg! Das liegt daran, dass Tibbles etwas anders funktionieren als Dataframes. Dataframes haben benannte Zeilen, während Tibbles an sich diese Information nicht speichern. Wir müssen daher Folgendes machen:
+
+```{r}
+mtcars_tibble <- as_tibble(rownames_to_column(mtcars))
+
+mtcars_tibble
+```
+
+Viel besser. Mit diesem Tibble können wir nun viel einfacher filtern, nämlich mit der `filter()`-Funktion:
+
+```{r}
+filter(mtcars_tibble, mpg > 30)
+```
+
+Oben haben wir schon gesehen, dass wir zum Umformen des Dataframes in einen Tibble mehrere Schritte ineinander bauen müssen. Wollen wir nun noch den ursprünglichen Dataframe vor der Umformung verändern, kann das ziemlich schnell unübersichtlich werden:
+
+```{r}
+# Wir wollen z.B. in einem Schritt den Dataframe in einen Tibble umwandeln und dann filtern:
+filter(as_tibble(rownames_to_column(mtcars)), mpg > 30)
+
+# Unübersichtlich und fehleranfällig!
+```
+
+Stattdessen führen wir den sogenannten `Pipe`-Operator (geschrieben `%>%`) als neue Schreibweise an. Man kann sich seine Funktion so vorstellen, dass er alles, was auf der linken Seite von ihm steht, nimmt und dem, was auf der rechten Seite steht, übergibt. Wir wollen den vorherigen Codeblock einfacher schreiben:
+
+```{r}
+# Lesen von links nach rechts:
+mtcars %>%                     # Wir nehmen das mtcars-Datenset...
+  rownames_to_column() %>%     # und lagern die Namen in eine eigene Spalte aus...
+  as_tibble() %>%              # und konvertieren das in einen Tibble...
+  filter(mpg > 30)             # und filtern nach Autos, die mehr als 30 MPG haben.
+```
+
+Viel einfacher lesbar, oder?

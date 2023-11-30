@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Data Science-AG - 1.2 Erste Schritte in RStudio</title>
+<title>Data Science-AG - 2.2 Schleifen und Funktionen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -87,7 +87,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><link rel="stylesheet" href="styles.css">
+}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><link rel="stylesheet" href="styles.css">
 </head>
 <body class="nav-sidebar floating nav-fixed">
 
@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-installation.html">1. Einführung in R</a></li><li class="breadcrumb-item"><a href="./02-erste-schritte.html">1.2 Erste Schritte in RStudio</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">2.2 Schleifen und Funktionen</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -159,7 +159,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-erste-schritte.html" class="sidebar-item-text sidebar-link active">
+  <a href="./02-erste-schritte.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1.2 Erste Schritte in RStudio</span></a>
   </div>
 </li>
@@ -173,14 +173,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#hauptfenster-und-konsole" id="toc-hauptfenster-und-konsole" class="nav-link active" data-scroll-target="#hauptfenster-und-konsole">Hauptfenster und Konsole</a></li>
-  <li><a href="#skripte-erstellen" id="toc-skripte-erstellen" class="nav-link" data-scroll-target="#skripte-erstellen">Skripte erstellen</a></li>
-  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">Packages</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/timnehls/ag-website/edit/main/02-erste-schritte.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/timnehls/ag-website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<li><a href="#schleifen" id="toc-schleifen" class="nav-link active" data-scroll-target="#schleifen">Schleifen</a></li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/timnehls/ag-website/edit/main/04-funktionen-und-schleifen.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/timnehls/ag-website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">1.2 Erste Schritte in RStudio</h1>
+<h1 class="title">2.2 Schleifen und Funktionen</h1>
 </div>
 
 
@@ -193,27 +191,107 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-</header><p>Auf dieser Seite findet ihr drei Videos, die euch mit den Grundfunktionen von R und RStudio vertraut machen sollen.</p>
-<section id="hauptfenster-und-konsole" class="level2"><h2 class="anchored" data-anchor-id="hauptfenster-und-konsole">Hauptfenster und Konsole</h2>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/ZyKTJu7TejY" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</section><section id="skripte-erstellen" class="level2"><h2 class="anchored" data-anchor-id="skripte-erstellen">Skripte erstellen</h2>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/KTfgZb-_p-o" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-</section><section id="packages" class="level2"><h2 class="anchored" data-anchor-id="packages">Packages</h2>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/hkbz4JyosZ4" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<hr>
-<p>Der Code, der im Video verwendet wurde:</p>
+</header><p>Wir werden zwei wichtige Konzepte behandeln - Funktionen und Schleifen. Mit Funktionen können wir einen Code in einen Block auslagern, ihn benennen und wiederbenutzen. Mit Schleifen können wir Code ausführen, bis eine bestimmte Bedingung erfüllt ist.</p>
+<section id="schleifen" class="level3"><h3 class="anchored" data-anchor-id="schleifen">Schleifen</h3>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Was macht diese Schleife?</span></span>
+<span><span class="co"># (1) Sie definiert die Variable i. Diese Variable nimmt alle Werte von 1 bis 10 an</span></span>
+<span><span class="co"># (sie "iteriert" über die Zahlen 1 bis 10).</span></span>
+<span><span class="co"># (2) Alles, was innerhalb der Schleife steht, kann auf i zugreifen.</span></span>
+<span><span class="co"># (3) Im Inneren der Schleife wird der jeweilige Wert von i in die Konsole ausgegeben.</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Wir können nicht nur über Zahlen iterieren:</span></span>
+<span><span class="va">farben</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"rot"</span>, <span class="st">"gelb"</span>, <span class="st">"grün"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">mtcars</span></span>
+<span><span class="co"># Es wird das Folgende ausgegeben:</span></span>
+<span><span class="co"># Ich mag die Farbe rot</span></span>
+<span><span class="co"># Ich mag die Farbe gelb</span></span>
+<span><span class="co"># Ich mag die Farbe grün</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">farbe</span> <span class="kw">in</span> <span class="va">farben</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">nachricht</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Ich mag die Farbe"</span>, <span class="va">farbe</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">nachricht</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="aufgabe-1" class="level4"><h4 class="anchored" data-anchor-id="aufgabe-1">Aufgabe 1</h4>
+<p>Die Fibonaccifolge ist eine Folge, die mit den Zahlen <span class="math inline">\(1, 1, 2, 3, 5, 8, ...\)</span> beginnt.</p>
+<ol type="1">
+<li>Welche Vorschrift beschreibt diese Folge?</li>
+<li>Implementiere die Fibonaccifolge: Schreibe Code, der die ersten 20 Zahlen dieser Folge ausgibt.</li>
+</ol>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung 1.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Die Vorschrift der Fibonaccifolge lautet <span class="math inline">\(F_n=F_{n-1}+F_{n-2}\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details><summary>Lösung 2.</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fib</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fl">10</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">wt</span>, y <span class="op">=</span> <span class="va">mpg</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span><span class="op">(</span>method <span class="op">=</span> <span class="va">lm</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">fib</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
+<span><span class="va">fib</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
+<span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">n</span> <span class="kw">in</span> <span class="fl">3</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">fib</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">fib</span><span class="op">[</span><span class="va">n</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">fib</span><span class="op">[</span><span class="va">n</span><span class="op">-</span><span class="fl">1</span><span class="op">]</span> <span class="op">+</span> <span class="va">fib</span><span class="op">[</span><span class="va">n</span><span class="op">-</span><span class="fl">2</span><span class="op">]</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">fib</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="aufgabe-2" class="level4"><h4 class="anchored" data-anchor-id="aufgabe-2">Aufgabe 2</h4>
+<p>Illustriere an einem Beispiel, dass folgende Aussage für alle <span class="math inline">\(n \geq 1\)</span> gilt:</p>
+<p><span class="math display">\[
+n^2 = \sum\limits_{k=1}^n [2k-1]
+\]</span></p>
+<p>Es reicht, wenn du beispielsweise alle <span class="math inline">\(n \leq 50\)</span> betrachtest.</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\sum\limits_{k=1}^n [2k-1]\)</span> kann auch geschrieben werden als <span class="math inline">\(1+3+5+...+(2n-1)\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details><summary>Lückencode</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># 2k-1 für 1 &lt;= k &lt;= 50 sind alle ungeraden Zahlen von 1 bis 100.</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="va">...</span>, to <span class="op">=</span> <span class="va">...</span>, by <span class="op">=</span> <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Wir erstellen einen leeren Vektor y der Länge von x:</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">...</span>, length <span class="op">=</span> <span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Wir schreiben eine Schleife, die für jedes n &lt;= 50 die Summe von k=1 bis n von 2k-1 berechnet und in y speichert.</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">y</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># y besteht aus allen Quadratzahlen von 1 bis 50.</span></span>
+<span><span class="va">y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
