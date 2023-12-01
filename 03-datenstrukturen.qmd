@@ -260,7 +260,49 @@ mtcars_tibble %>%                  # Tibble auswählen
 
 #### Aufgabe 2
 
-*TODO*
+New York gehört mit seinen Flughäfen zu den weltweit bekanntesten Verkehrsdrehkreuzen. Es ist so bekannt, dass es in R eine eigene Library für die Aufzeichnung aller abgehenden Flüge im Jahr 2013 gibt.
+
+Installiere für diese Aufgabe die `nycflights13`-Library und lade sie in den Arbeitsbereich. Uns interessiert vor allem der `flights`-Tibble.
+
+1.  Welche Flüge sind verfrüht abgehoben?
+2.  Welche Flüge sind verspätet abgehoben und haben die Verspätung aufgeholt?
+3.  Füge eine neue Variable `short_flight` zum Tibble hinzu, die den Wert 1 annimmt, wenn der Flug weniger als 2 Stunden Flugzeit hat, und ansonsten 0 ist (Hinweis: `?mutate` könnte hilfreich sein).
+4.  Welcher Anteil an verspätet abgehobenen Flügen, die die Verspätung aufgeholt haben, hatten weniger als zwei Stunden Flugzeit?
+
+::: {.callout-note collapse="true" appearance="minimal" icon="false"}
+## Tipp
+
+Zu 3.: Nutze nach dem Filtern `mutate(... = if_else(...))`, um für jeden Flug die Variable `short_flight` zu erstellen.
+
+Zu 4.: Verwende die Funktionen `summarise()`, `sum()` und `n()`, um den Anteil zu errechnen.
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Lösung"
+#| eval: false
+
+library(nycflights13)
+
+# 1
+flights %>% 
+  filter(dep_delay < 0)
+
+# 2
+flights %>% 
+  filter(dep_delay > 0 & arr_delay <= 0)
+
+# 3
+flights %>% 
+  filter(dep_delay > 0 & arr_delay <= 0) %>% 
+  mutate(short_flight = if_else(air_time < 120, 1, 0)) 
+
+# 4
+flights %>% 
+  filter(dep_delay > 0 & arr_delay <= 0) %>% 
+  mutate(short_flight = if_else(air_time < 120, 1, 0)) %>% 
+  summarise(share_short = sum(short_flight)/n())
+```
 
 ### Liste
 
