@@ -306,4 +306,8 @@ flights %>%
 
 ### Liste
 
-*TODO*
+*Info*: *Dieses Kapitel folgt grob den Inhalten aus Kapitel 9 in* "Beginning Computer Science with R" *von Homer White.*
+
+Die Datenstrukturen, die wir uns bisher angeschaut haben, waren *atomisch*, das heißt, sie können pro Einheit (bspw. Spalte) nur eine Art Datentyp beinhalten. Nun gehen wir über zu den *Listen*, die Objekte aller Arten beinhalten können. Zahlen, Wörter, andere Listen, alles ist möglich.
+
+Wir beginnen die Erkundung, indem wir mit `list()` selbst Listen erstellen.
