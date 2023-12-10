@@ -15,3 +15,5 @@ Das Ziel dieser AG ist es, mithilfe der statistischen Programmiersprache R inter
 ## Ablauf
 
 -   Unter "Einführung in R" finden sich Anleitungen, die die Einrichtung von R erklären und den Aufbau der Software "RStudio" erläutern. Zudem behandeln wir dort die ersten Schritte im Programmieren mit R.
+-   Das erste Treffen findet voraussichtlich am 12. Januar 2024 im GaW statt. Der Raum wird noch bekannt gegeben.
+-   Mathematikkenntnisse bis zur EF sind erforderlich. Programmierkenntnisse sind nicht vonnöten.
