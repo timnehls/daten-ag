@@ -407,7 +407,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] 6</code></pre>
 </div>
 </div>
-<section id="aufgabe" class="level4"><h4 class="anchored" data-anchor-id="aufgabe">Aufgabe</h4>
+<section id="aufgabe-1" class="level4"><h4 class="anchored" data-anchor-id="aufgabe-1">Aufgabe 1</h4>
 <p>Gib den kleinsten und den größten Eintrag sowie den Median von <code>x</code> an!</p>
 <div class="cell">
 <details><summary>Lösung</summary><div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">min</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
@@ -545,7 +545,7 @@ Lotus Europa   30.4   4 95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 </div>
 </div>
 <p>Viel einfacher lesbar, oder? Wir werden diese Datenstruktur sehr häufig nutzen, eben weil wir diese Funktionen anwenden können.</p>
-<section id="aufgabe-1" class="level4"><h4 class="anchored" data-anchor-id="aufgabe-1">Aufgabe 1</h4>
+<section id="aufgabe-2" class="level4"><h4 class="anchored" data-anchor-id="aufgabe-2">Aufgabe 2</h4>
 <p>Wähle alle <em>außer</em> den ersten 15 Autos aus (<code><a href="https://dplyr.tidyverse.org/reference/slice.html">?slice</a></code> in die Konsole einzugeben könnte hilfreich sein, schaue dort nach einem Weg, Zeilen auszuschließen) und filtere dann nach den Autos mit mindestens 6 Zylindern. Sortiere dann die Autos nach Meilen pro Gallone (absteigend; <code><a href="https://dplyr.tidyverse.org/reference/arrange.html">?arrange</a></code> könnte hilfreich sein, schaue dort unter den Beispielen nach einem Weg, absteigend zu sortieren). Zeige nur die Namen der Autos, die Meilen pro Gallone, die Zylinder und die PS an (<code><a href="https://dplyr.tidyverse.org/reference/select.html">?select</a></code> könnte hilfreich sein).</p>
 <div class="cell">
 <details><summary>Lösung</summary><div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mtcars_tibble</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>                  <span class="co"># Tibble auswählen</span></span>
@@ -555,7 +555,7 @@ Lotus Europa   30.4   4 95.1 113 3.77 1.513 16.90  1  1    5    2</code></pre>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">rowname</span>, <span class="va">mpg</span>, <span class="va">cyl</span>, <span class="va">hp</span><span class="op">)</span>    <span class="co"># Nur Name, MPG, Zylinder, PS anzeigen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-</section><section id="aufgabe-2" class="level4"><h4 class="anchored" data-anchor-id="aufgabe-2">Aufgabe 2</h4>
+</section><section id="aufgabe-3" class="level4"><h4 class="anchored" data-anchor-id="aufgabe-3">Aufgabe 3</h4>
 <p>New York gehört mit seinen Flughäfen zu den weltweit bekanntesten Verkehrsdrehkreuzen. Es ist so bekannt, dass es in R eine eigene Library für die Aufzeichnung aller abgehenden Flüge im Jahr 2013 gibt.</p>
 <p>Installiere für diese Aufgabe die <code>nycflights13</code>-Library und lade sie in den Arbeitsbereich. Uns interessiert vor allem der <code>flights</code>-Tibble.</p>
 <ol type="1">
@@ -608,9 +608,114 @@ Tipp
 <p><em>Info</em>: <em>Dieses Kapitel folgt grob den Inhalten aus Kapitel 9 in</em> “Beginning Computer Science with R” <em>von Homer White.</em></p>
 <p>Die Datenstrukturen, die wir uns bisher angeschaut haben, waren <em>atomisch</em>, das heißt, sie können pro Einheit (bspw. Spalte) nur eine Art Datentyp beinhalten. Nun gehen wir über zu den <em>Listen</em>, die Objekte aller Arten beinhalten können. Zahlen, Wörter, andere Listen, alles ist möglich.</p>
 <p>Wir beginnen die Erkundung, indem wir mit <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> selbst Listen erstellen.</p>
+<div class="cell">
+<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">liste1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  modellname <span class="op">=</span> <span class="st">"Audi A6"</span>,</span>
+<span>  zulassung <span class="op">=</span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/as_date.html">as_date</a></span><span class="op">(</span><span class="st">"15.05.2013"</span>, format <span class="op">=</span> <span class="st">"%d.%m.%Y"</span><span class="op">)</span>,</span>
+<span>  kilometerstand <span class="op">=</span> <span class="fl">115290</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">tibble1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
+<span>  x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">letters</span><span class="op">)</span>,</span>
+<span>  y <span class="op">=</span> <span class="va">letters</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">liste2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  auto <span class="op">=</span> <span class="va">liste1</span>,</span>
+<span>  buchstaben <span class="op">=</span> <span class="va">tibble1</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">liste3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  vokale <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"e"</span>, <span class="st">"i"</span>, <span class="st">"o"</span>, <span class="st">"u"</span><span class="op">)</span>,</span>
+<span>  listen <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">liste1</span>, <span class="va">liste2</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Die hier zu sehenden Listen beinhalten Objekte unterschiedlicher Art, und sie können wiederum Listen enthalten. Wir lassen uns nun Liste 1 ausgeben:</p>
+<div class="cell">
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">liste1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$modellname
+[1] "Audi A6"
+
+$zulassung
+[1] "2013-05-15"
+
+$kilometerstand
+[1] 115290</code></pre>
+</div>
+</div>
+<p>Wir sehen, dass jedes Element dieser Liste einen Namen (z.B. <code>$modellname)</code> hat. Man kann die Elemente dementsprechend auch über ihren Namen aufrufen:</p>
+<div class="cell">
+<div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">liste1</span><span class="op">$</span><span class="va">modellname</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Audi A6"</code></pre>
+</div>
+</div>
+<p>Wir schon bei Eingabe des Dollarzeichens Gebrauch von der Autovervollständigung machen: Die Elemente der Liste werden uns sofort angezeigt.</p>
+<p>Leere Listen können auch erstellt werden, zum Beispiel, wenn wir noch nicht wissen, wie viele Elemente welcher Art gesammelt werden sollen:</p>
+<div class="cell">
+<div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">leere_liste</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wissen wir hingegen, wie viele Elemente wir speichern wollen, können wir folgende Schreibweise verwenden:</p>
+<div class="cell">
+<div class="sourceCode" id="cb78"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">liste</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">vector</a></span><span class="op">(</span>mode <span class="op">=</span> <span class="st">"list"</span>, length <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="co"># 5 durch gewünschte Länge ersetzen</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="aufgabe-4" class="level4"><h4 class="anchored" data-anchor-id="aufgabe-4">Aufgabe 4</h4>
+<p>Erstelle eine Liste <code>uebe_liste</code> mit den folgenden drei Elementen:</p>
+<ul>
+<li><p>Alle geraden Zahlen von 2 bis 123 (Name: <code>gerade_zahlen</code>)</p></li>
+<li><p>Alle großen Buchstaben (Name: <code>alphabet_gross</code>)</p></li>
+<li><p>Die Billboard Top 100 aus dem Jahr 2000 (Zu finden unter <code>billboard</code>, Name: <code>top100</code>)</p></li>
+</ul>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Eine Abfolge von Zahlen mit einem bestimmten Abstand kann mit <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code> erzeugt werden.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<details><summary>Lösung</summary><div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">uebe_liste</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span></span>
+<span>  gerade_zahlen <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">123</span>, by <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>,</span>
+<span>  alphabet_gross <span class="op">=</span> <span class="va">LETTERS</span>,</span>
+<span>  top100 <span class="op">=</span> <span class="va">billboard</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="aufgabe-5" class="level4"><h4 class="anchored" data-anchor-id="aufgabe-5">Aufgabe 5</h4>
+<p>Was passiert, wenn wir nach dem Erstellen der Liste aus Aufgabe 4 folgenden Code ausführst?</p>
+<div class="cell">
+<div class="sourceCode" id="cb80"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">uebe_liste</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">uebe_liste</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>zahl <span class="op">=</span> <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lösung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Die Liste <code>uebe_liste</code> wird erweitert mit dem Element <code>zahl</code>.</p>
+</div>
+</div>
+</div>
+<p><em>TODO</em></p>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");

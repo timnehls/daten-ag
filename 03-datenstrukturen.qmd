@@ -145,7 +145,7 @@ mean(x)     # Mittelwert des Vektors
 sum(x)      # Summe der Einträge des Vektors
 ```
 
-#### Aufgabe
+#### Aufgabe 1
 
 Gib den kleinsten und den größten Eintrag sowie den Median von `x` an!
 
@@ -242,7 +242,7 @@ mtcars %>%                     # Wir nehmen das mtcars-Datenset...
 
 Viel einfacher lesbar, oder? Wir werden diese Datenstruktur sehr häufig nutzen, eben weil wir diese Funktionen anwenden können.
 
-#### Aufgabe 1
+#### Aufgabe 2
 
 Wähle alle *außer* den ersten 15 Autos aus (`?slice` in die Konsole einzugeben könnte hilfreich sein, schaue dort nach einem Weg, Zeilen auszuschließen) und filtere dann nach den Autos mit mindestens 6 Zylindern. Sortiere dann die Autos nach Meilen pro Gallone (absteigend; `?arrange` könnte hilfreich sein, schaue dort unter den Beispielen nach einem Weg, absteigend zu sortieren). Zeige nur die Namen der Autos, die Meilen pro Gallone, die Zylinder und die PS an (`?select` könnte hilfreich sein).
 
@@ -258,7 +258,7 @@ mtcars_tibble %>%                  # Tibble auswählen
   select(rowname, mpg, cyl, hp)    # Nur Name, MPG, Zylinder, PS anzeigen
 ```
 
-#### Aufgabe 2
+#### Aufgabe 3
 
 New York gehört mit seinen Flughäfen zu den weltweit bekanntesten Verkehrsdrehkreuzen. Es ist so bekannt, dass es in R eine eigene Library für die Aufzeichnung aller abgehenden Flüge im Jahr 2013 gibt.
 
@@ -311,3 +311,95 @@ flights %>%
 Die Datenstrukturen, die wir uns bisher angeschaut haben, waren *atomisch*, das heißt, sie können pro Einheit (bspw. Spalte) nur eine Art Datentyp beinhalten. Nun gehen wir über zu den *Listen*, die Objekte aller Arten beinhalten können. Zahlen, Wörter, andere Listen, alles ist möglich.
 
 Wir beginnen die Erkundung, indem wir mit `list()` selbst Listen erstellen.
+
+```{r}
+liste1 <- list(
+  modellname = "Audi A6",
+  zulassung = as_date("15.05.2013", format = "%d.%m.%Y"),
+  kilometerstand = 115290
+)
+
+tibble1 <- tibble(
+  x = length(letters),
+  y = letters
+)
+
+liste2 <- list(
+  auto = liste1,
+  buchstaben = tibble1
+)
+
+liste3 <- list(
+  vokale = c("a", "e", "i", "o", "u"),
+  listen = list(liste1, liste2)
+)
+```
+
+Die hier zu sehenden Listen beinhalten Objekte unterschiedlicher Art, und sie können wiederum Listen enthalten. Wir lassen uns nun Liste 1 ausgeben:
+
+```{r}
+liste1
+```
+
+Wir sehen, dass jedes Element dieser Liste einen Namen (z.B. `$modellname)` hat. Man kann die Elemente dementsprechend auch über ihren Namen aufrufen:
+
+```{r}
+liste1$modellname
+```
+
+Wir schon bei Eingabe des Dollarzeichens Gebrauch von der Autovervollständigung machen: Die Elemente der Liste werden uns sofort angezeigt.
+
+Leere Listen können auch erstellt werden, zum Beispiel, wenn wir noch nicht wissen, wie viele Elemente welcher Art gesammelt werden sollen:
+
+```{r}
+leere_liste <- list()
+```
+
+Wissen wir hingegen, wie viele Elemente wir speichern wollen, können wir folgende Schreibweise verwenden:
+
+```{r}
+liste <- vector(mode = "list", length = 5) # 5 durch gewünschte Länge ersetzen
+```
+
+#### Aufgabe 4
+
+Erstelle eine Liste `uebe_liste` mit den folgenden drei Elementen:
+
+-   Alle geraden Zahlen von 2 bis 123 (Name: `gerade_zahlen`)
+
+-   Alle großen Buchstaben (Name: `alphabet_gross`)
+
+-   Die Billboard Top 100 aus dem Jahr 2000 (Zu finden unter `billboard`, Name: `top100`)
+
+::: {.callout-note collapse="true" appearance="minimal" icon="false"}
+## Tipp
+
+Eine Abfolge von Zahlen mit einem bestimmten Abstand kann mit `seq()` erzeugt werden.
+:::
+
+```{r}
+#| code-fold: true
+#| code-summary: "Lösung"
+
+uebe_liste <- list(
+  gerade_zahlen = seq(2, 123, by = 2),
+  alphabet_gross = LETTERS,
+  top100 = billboard
+)
+```
+
+#### Aufgabe 5
+
+Was passiert, wenn wir nach dem Erstellen der Liste aus Aufgabe 4 folgenden Code ausführst?
+
+```{r}
+uebe_liste <- c(uebe_liste, list(zahl = 5))
+```
+
+::: {.callout-note collapse="true" appearance="minimal" icon="false"}
+## Lösung
+
+Die Liste `uebe_liste` wird erweitert mit dem Element `zahl`.
+:::
+
+_TODO_
