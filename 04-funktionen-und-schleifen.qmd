@@ -109,4 +109,4 @@ Wir schauen uns im Folgenden eine Abwandlung dieser bayerischen Abituraufgabe an
 
 Es sei nun $X = \begin{cases} 1 & \text{Pkw hat Elektromotor} \\ 0 & \text{Pkw hat keinen Elektromotor}\end{cases}$ für jedes Auto in der Ziehung. $Y$ ist dann die Zahl der Pkw mit Elektromotor in der Ziehung, also die Summe der Ergebnisse der Ziehung.
 
-Nehmen wir an, es werden von drei Umfrageinstituten jeweils vier dieser Untersuchungen durchgeführt. Die Ergebnisse dieser Umfragen sind in Rohform in der Datei
+Nehmen wir an, es werden von drei Umfrageinstituten jeweils vier dieser Untersuchungen durchgeführt. Die Ergebnisse dieser Umfragen sind in Rohform in der Datei [funktionen-ziehungen.csv](data/funktionen-ziehungen.csv)
