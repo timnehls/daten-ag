@@ -109,4 +109,112 @@ Wir schauen uns im Folgenden eine Abwandlung dieser bayerischen Abituraufgabe an
 
 Es sei nun $X = \begin{cases} 1 & \text{Pkw hat Elektromotor} \\ 0 & \text{Pkw hat keinen Elektromotor}\end{cases}$ für jedes Auto in der Ziehung. $Y$ ist dann die Zahl der Pkw mit Elektromotor in der Ziehung, also die Summe der Ergebnisse der Ziehung.
 
-Nehmen wir an, es werden von drei Umfrageinstituten jeweils vier dieser Untersuchungen durchgeführt. Die Ergebnisse dieser Umfragen sind in Rohform in der Datei [funktionen-ziehungen.csv](data/funktionen-ziehungen.csv)
+Nehmen wir an, es werden von drei Umfrageinstituten jeweils vier dieser Untersuchungen durchgeführt. Die Ergebnisse dieser Umfragen sind in Rohform in der Datei [funktionen-ziehungen.csv](data/funktionen-ziehungen.csv) zu finden.
+
+#### Aufgabe 3
+
+1.  Lade die Daten mithilfe der Funktion `read_csv()` in einen Tibble `ziehungen`.
+
+    ```{r}
+    #| code-fold: true
+    #| code-summary: "Lösung"
+
+    library(tidyverse)
+
+    ziehungen <- 
+      read_csv("data/funktionen-ziehungen.csv")
+    ```
+
+2.  Nutze folgenden Codeschnipsel, um aus den gegebenen Daten für $X\ Y$ zu berechnen:
+
+    ```{r}
+    colnames <- colnames(ziehungen) %>% 
+      gsub(",.*", "", .) %>% 
+      unique()
+
+    ergebnisse <-
+      ziehungen %>% 
+      map(sum) %>% 
+      matrix(., nrow 
+             = 4, ncol = 3, byrow = F,
+             dimnames = list(NULL, colnames)) %>% 
+      as_tibble() %>% 
+      unnest(cols = all_of(colnames))
+    ```
+
+3.  Warum sollte man den folgenden Code durch eine Funktion ersetzen?
+
+    ```{r}
+    #| output: false
+
+    statistiken <- 
+      tibble(
+        Statistik = c("Mittel", "Median", "Standardabweichung"),
+        "Institut 1" = c(
+          mean(ergebnisse$`Institut 1`),
+          median(ergebnisse$`Institut 1`),
+          sd(ergebnisse$`Institut 1`)
+        ),
+        "Institut 2" = c(
+          mean(ergebnisse$`Institut 2`),
+          median(ergebnisse$`Institut 2`),
+          sd(ergebnisse$`Institut 2`)
+        ),
+        "Institut 3" = c(
+          mean(ergebnisse$`Institut 3`),
+          median(ergebnisse$`Institut 3`),
+          sd(ergebnisse$`Institut 3`)
+        )
+      )
+    ```
+
+4.  Nutze den folgenden Codeschnipsel, um eine Funktion zu schreiben, die für einen Vektor die Statistiken berechnet, und eine andere Funktion, die daraus den obigen Tibble erstellt:
+
+    ```{r}
+    #| eval: false
+
+    berechne_statistiken <-
+      function(institut) {
+        statistiken <- 
+          c(...,
+            ...,
+            ...)
+        
+        return(statistiken)
+      }
+
+    erstelle_stats_tibble <-
+      function(ergebnisse) {
+        tibble(Statistik = c(...),
+               values =
+                 ergebnisse %>% 
+                 map(...) %>% 
+                 bind_rows()) %>% 
+          unnest(...)
+      }
+    ```
+
+    ```{r}
+    #| code-fold: true
+    #| code-summary: "Lösung"
+
+    berechne_statistiken <-
+      function(institut) {
+        statistiken <- 
+          c(mean(institut),
+            median(institut),
+            sd(institut))
+        
+        return(statistiken)
+      }
+
+    erstelle_stats_tibble <-
+      function(ergebnisse) {
+        tibble(Statistik = c("Mittel", "Median", "Standardabweichung"),
+               values =
+                 ergebnisse %>% 
+                 map(berechne_statistiken) %>% 
+                 bind_rows()) %>% 
+          unnest(values)
+      }
+    ```
