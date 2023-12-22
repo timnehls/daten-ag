@@ -712,7 +712,47 @@ Lösung
 </div>
 </div>
 </div>
-<p><em>TODO</em></p>
+</section><section id="operationen-auf-listen" class="level4"><h4 class="anchored" data-anchor-id="operationen-auf-listen">Operationen auf Listen</h4>
+<p>Wollen wir auf einen Teil der Liste zugreifen, so können wir das genau wie bei Vektoren mit folgendermaßen machen:</p>
+<div class="cell">
+<div class="sourceCode" id="cb81"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">liste1</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span> <span class="co"># Gibt die ersten beiden Elemente der Liste (modellname, zulassung)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$modellname
+[1] "Audi A6"
+
+$zulassung
+[1] "2013-05-15"</code></pre>
+</div>
+</div>
+<p>Wir können auch auf genau ein Element der Liste zugreifen:</p>
+<div class="cell">
+<div class="sourceCode" id="cb83"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">vokale</span> <span class="op">&lt;-</span> <span class="va">liste3</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nehmen wir nun an, wir wollen den vierten Vokal aus <code>vokale</code> ausgeben. Versuchen wir es wie folgt:</p>
+<div class="cell">
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">vokale</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$&lt;NA&gt;
+NULL</code></pre>
+</div>
+</div>
+<p>erhalten wir die Ausgabe <code>$&lt;NA&gt; NULL</code>. Das liegt daran, dass beim Zugreifen auf eine Liste mit einer einfachen eckigen Klammer (<code>[...]</code>) eine Liste mit genau den entsprechenden Inhalten zurückgegeben wird. In unserem Fall ist das eine Liste mit einem Element:</p>
+<div class="cell">
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">vokale</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+<p>Versuchen wir nun, auf das vierte Element (in dem Fall der Liste) zuzugreifen, funktioniert das nicht, weil die zurückgegebene Liste eben nur ein Element hat.</p>
+<p>Wenn wir das Element selbst (und nicht eine Liste bestehend aus diesem Element) zurückgeben wollen, müssen wir doppelte eckige Klammern (<code>[[...]]</code>) benutzen:</p>
+<div class="cell">
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">vokale</span> <span class="op">&lt;-</span> <span class="va">liste3</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
+<span></span>
+<span><span class="va">vokale</span><span class="op">[</span><span class="fl">4</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "o"</code></pre>
+</div>
+</div>
 
 
 </section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">

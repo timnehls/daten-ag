@@ -402,4 +402,38 @@ uebe_liste <- c(uebe_liste, list(zahl = 5))
 Die Liste `uebe_liste` wird erweitert mit dem Element `zahl`.
 :::
 
-_TODO_
+#### Operationen auf Listen
+
+Wollen wir auf einen Teil der Liste zugreifen, so können wir das genau wie bei Vektoren mit folgendermaßen machen:
+
+```{r}
+liste1[1:2] # Gibt die ersten beiden Elemente der Liste (modellname, zulassung)
+```
+
+Wir können auch auf genau ein Element der Liste zugreifen:
+
+```{r}
+vokale <- liste3[1]
+```
+
+Nehmen wir nun an, wir wollen den vierten Vokal aus `vokale` ausgeben. Versuchen wir es wie folgt:
+
+```{r}
+vokale[4]
+```
+
+erhalten wir die Ausgabe `$<NA> NULL`. Das liegt daran, dass beim Zugreifen auf eine Liste mit einer einfachen eckigen Klammer (`[...]`) eine Liste mit genau den entsprechenden Inhalten zurückgegeben wird. In unserem Fall ist das eine Liste mit einem Element:
+
+```{r}
+length(vokale)
+```
+
+Versuchen wir nun, auf das vierte Element (in dem Fall der Liste) zuzugreifen, funktioniert das nicht, weil die zurückgegebene Liste eben nur ein Element hat.
+
+Wenn wir das Element selbst (und nicht eine Liste bestehend aus diesem Element) zurückgeben wollen, müssen wir doppelte eckige Klammern (`[[...]]`) benutzen:
+
+```{r}
+vokale <- liste3[[1]]
+
+vokale[4]
+```
