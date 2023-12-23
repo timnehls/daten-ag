@@ -90,7 +90,8 @@ x <- seq(from = ..., to = ..., by = ...)
 # Wir erstellen einen leeren Vektor y der Länge von x:
 y <- rep(..., length = ...)
 
-# Wir schreiben eine Schleife, die für jedes n <= 50 die Summe von k=1 bis n von 2k-1 berechnet und in y speichert.
+# Wir schreiben eine Schleife, die für jedes n <= 50 die Summe von k=1 bis n 
+# von 2k-1 berechnet und in y speichert.
 for (i in 1:length(x)) {
   y[i] <- sum(...)
 }

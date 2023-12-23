@@ -199,7 +199,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
 <li><a href="#schleifen" id="toc-schleifen" class="nav-link active" data-scroll-target="#schleifen">Schleifen</a></li>
   <li><a href="#funktionen" id="toc-funktionen" class="nav-link" data-scroll-target="#funktionen">Funktionen</a></li>
-  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/timnehls/ag-website/edit/main/04-funktionen-und-schleifen.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/timnehls/ag-website/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/timnehls/ag-website/edit/main/04-funktionen-und-schleifen.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/timnehls/ag-website/issues/new" class="toc-action">Report an issue</a></p></div></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="04-funktionen-und-schleifen.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
@@ -305,7 +305,8 @@ Tipp
 <span><span class="co"># Wir erstellen einen leeren Vektor y der Länge von x:</span></span>
 <span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="va">...</span>, length <span class="op">=</span> <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># Wir schreiben eine Schleife, die für jedes n &lt;= 50 die Summe von k=1 bis n von 2k-1 berechnet und in y speichert.</span></span>
+<span><span class="co"># Wir schreiben eine Schleife, die für jedes n &lt;= 50 die Summe von k=1 bis n </span></span>
+<span><span class="co"># von 2k-1 berechnet und in y speichert.</span></span>
 <span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">y</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>

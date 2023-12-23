@@ -47,6 +47,7 @@ format:
     code-link: true
     highlight-style: kate
     code-block-bg: "#fefaf1"
+  pdf: default
 
 editor: visual
 

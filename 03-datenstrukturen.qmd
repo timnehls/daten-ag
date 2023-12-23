@@ -96,7 +96,7 @@ Wir können mit Variablen aus den oben angegebenen Datentypen sehr gut einfache 
 
 ### Vektor
 
-Die wohl wichtigste Datenstruktur in R ist der *Vektor*. Vektoren sind Ansammlungen von Variablen eines bestimmten Datentyps. Ein Beispiel ist der Vektor $\vec{x}=\pmatrix{1 \\ 2 \\ 3}$, der die Zahlen 1, 2, und 3 enthält.
+Die wohl wichtigste Datenstruktur in R ist der *Vektor*. Vektoren sind Ansammlungen von Variablen eines bestimmten Datentyps. Ein Beispiel ist der Vektor $\vec{x}=\begin{pmatrix}1 \\ 2 \\ 3\end{pmatrix}$, der die Zahlen 1, 2, und 3 enthält.
 
 Wir erstellen oder *initialisieren* einen Vektor mit der `c()`-Funktion:
 
