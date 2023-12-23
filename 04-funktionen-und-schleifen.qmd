@@ -79,7 +79,7 @@ Es reicht, wenn du beispielsweise alle $n \leq 50$ betrachtest.
 $\sum\limits_{k=1}^n [2k-1]$ kann auch geschrieben werden als $1+3+5+...+(2n-1)$.
 :::
 
-```{r}
+```{r, tidy=TRUE, tidy.opts=list(width.cutoff=80)}
 #| code-fold: true
 #| code-summary: "Lückencode"
 #| eval: false
@@ -90,9 +90,7 @@ x <- seq(from = ..., to = ..., by = ...)
 # Wir erstellen einen leeren Vektor y der Länge von x:
 y <- rep(..., length = ...)
 
-# Wir schreiben eine Schleife, die für jedes 
-# n <= 50 die Summe von k=1 bis n 
-# von 2k-1 berechnet und in y speichert.
+# Wir schreiben eine Schleife, die für jedes n <= 50 die Summe von k=1 bis n von 2k-1 berechnet und in y speichert.
 for (i in 1:length(x)) {
   y[i] <- sum(...)
 }
@@ -147,8 +145,6 @@ Nehmen wir an, es werden von drei Umfrageinstituten jeweils vier dieser Untersuc
 3.  Warum sollte man den folgenden Code durch eine Funktion ersetzen?
 
     ```{r}
-    #| output: false
-
     statistiken <- 
       tibble(
         Statistik = c("Mittel", "Median", "Standardabweichung"),
