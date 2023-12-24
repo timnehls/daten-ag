@@ -99,6 +99,8 @@ for (i in 1:length(x)) {
 y
 ```
 
+*TODO: `map()`*
+
 ### Funktionen
 
 Funktionen ermöglichen es uns, Code als einen Block zusammenzufassen und wiederzuverwenden. Das ist besonders wichtig, wenn wir immer die gleichen ausgewählten Rechenschritte auf unterschiedlichen Daten durchführen wollen. Gleichzeitig müssen wir den Code nur an einer Stelle umschreiben, wenn wir eine Änderung oder Korrektur vornehmen müssen.
@@ -125,7 +127,7 @@ Nehmen wir an, es werden von drei Umfrageinstituten jeweils vier dieser Untersuc
       read_csv("data/funktionen-ziehungen.csv")
     ```
 
-2.  Nutze folgenden Codeschnipsel, um aus den gegebenen Daten für $X\ Y$ zu berechnen:
+2.  Nutze folgenden Codeschnipsel, um aus den gegebenen Daten für $X\ Y$ zu berechnen. Schlage hierbei mithilfe von `?(Funktion)` nach, was diese Funktionen bewirken.
 
     ```{r}
     colnames <- colnames(ziehungen) %>% 

@@ -315,6 +315,7 @@ Tipp
 <span><span class="va">y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<p><em>TODO: <code><a href="https://purrr.tidyverse.org/reference/map.html">map()</a></code></em></p>
 </section></section><section id="funktionen" class="level3"><h3 class="anchored" data-anchor-id="funktionen">Funktionen</h3>
 <p>Funktionen ermöglichen es uns, Code als einen Block zusammenzufassen und wiederzuverwenden. Das ist besonders wichtig, wenn wir immer die gleichen ausgewählten Rechenschritte auf unterschiedlichen Daten durchführen wollen. Gleichzeitig müssen wir den Code nur an einer Stelle umschreiben, wenn wir eine Änderung oder Korrektur vornehmen müssen.</p>
 <p>Wir schauen uns im Folgenden eine Abwandlung dieser bayerischen Abituraufgabe an:</p>
@@ -334,7 +335,7 @@ Tipp
 </div>
 </li>
 <li>
-<p>Nutze folgenden Codeschnipsel, um aus den gegebenen Daten für <span class="math inline">\(X\ Y\)</span> zu berechnen:</p>
+<p>Nutze folgenden Codeschnipsel, um aus den gegebenen Daten für <span class="math inline">\(X\ Y\)</span> zu berechnen. Schlage hierbei mithilfe von <code>?(Funktion)</code> nach, was diese Funktionen bewirken.</p>
 <div class="cell">
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">colnames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">ziehungen</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">",.*"</span>, <span class="st">""</span>, <span class="va">.</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
