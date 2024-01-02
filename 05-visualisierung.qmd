@@ -105,3 +105,69 @@ m111survey %>%
 Es gibt noch zahlreiche weitere Themes, die man mit `theme_...()` auswählen kann.
 
 ### Titel und Beschriftungen
+
+So, wie die Diagramme jetzt aussehen, sind sie etwas kahl. Wenn wir sie später irgendwo benutzen wollen, sollten wir sie so formatieren, dass man ihnen den Sinn entnehmen kann. Das können wir mithilfe von Titeln und Beschriftungen erreichen.
+
+Um einen Titel hinzuzufügen, gibt es das Layer `ggtitle()`. Es wird folgendermaßen verwendet:
+
+```{r}
+m111survey %>% 
+  ggplot(aes(x = fastest)) +
+  geom_histogram(fill = "burlywood", color = "black") +
+  theme_bw() +
+  ggtitle("Höchste je gefahrene Geschwindigkeit",
+          "Daten aus einer Befragung unter Studenten des Georgetown College in Kentucky")
+```
+
+Nun sind die Achsenbeschriftungen aber auch noch auf Englisch und nicht sehr deskriptiv. Wir können sie mithilfe von `xlab()` und `ylab()` ändern:
+
+```{r}
+m111survey %>% 
+  ggplot(aes(x = fastest)) +
+  geom_histogram(fill = "burlywood", color = "black") +
+  theme_bw() +
+  ggtitle("Höchste je gefahrene Geschwindigkeit",
+          "Daten aus einer Befragung unter Studenten des Georgetown College in Kentucky") +
+  xlab("Geschwindigkeit in Meilen pro Stunde") +
+  ylab("Anzahl an Angaben")
+```
+
+Wie wir in der Ausgabe sehen, sollte man auch noch die Breite der Säulen festlegen. Das sollte immer im Kontext der Daten erfolgen: Eine Säulenbreite von 50 würde die Daten unzureichend darstellen, während eine Säulenbreite von 1 zu fein ist (eventuell mehrmals nur eine Angabe pro Säule). Eine Säulenbreite von 5 ist wahrscheinlich angemessen:
+
+```{r}
+m111survey %>% 
+  ggplot(aes(x = fastest)) +
+  geom_histogram(fill = "burlywood", color = "black", binwidth = 5) +
+  theme_bw() +
+  ggtitle("Höchste je gefahrene Geschwindigkeit",
+          "Daten aus einer Befragung unter Studenten des Georgetown College in Kentucky") +
+  xlab("Geschwindigkeit in Meilen pro Stunde") +
+  ylab("Anzahl an Angaben")
+```
+
+### Achsenskalierung
+
+Wir sehen im Diagramm oben, dass wir nur zwei x-Achsen-Markierungen haben, bei 100 und 150 Meilen pro Stunde. Das ist aber relativ wenig. Wir können mehr Markierungen hinzufügen, indem wir festlegen, wo sie zu sehen sein sollen. Ebenso ist unschön, dass wir auf der y-Achse keine ganzen Zahlen haben, obwohl wir nur zählen, wie häufig (ganze Zahlen) die angegebene Geschwindigkeit genannt wird. Auch hier ändern wir die Skala:
+
+```{r}
+m111survey %>% 
+  ggplot(aes(x = fastest)) +
+  geom_histogram(fill = "burlywood", color = "black", binwidth = 5) +
+  theme_bw() +
+  ggtitle("Höchste je gefahrene Geschwindigkeit",
+          "Daten aus einer Befragung unter Studenten des Georgetown College in Kentucky") +
+  xlab("Geschwindigkeit in Meilen pro Stunde") +
+  ylab("Anzahl an Angaben") +
+  scale_x_continuous(breaks = c(75, 100, 125, 150, 175)) +
+  scale_y_continuous(breaks = c(0, 2, 4, 6, 8))
+```
+
+## Weitere Ressourcen
+
+Welche Mittel man für ein schönes Diagramm braucht, hängt sehr davon ab, welche Art von Daten man hat und was man darstellen möchte. In vielen Fällen ist es das Einfachste, nach den Layern zu googeln, die man benutzen will. Hier sind noch einige weitere Ressourcen, in denen man nachschlagen kann:
+
+-   Das `ggplot2`-Cheat Sheet: [LINK](https://www.maths.usyd.edu.au/u/UG/SM/STAT3022/r/current/Misc/data-visualization-2.1.pdf)
+
+-   Die `ggplot2`-Dokumentation: [LINK](https://ggplot2.tidyverse.org/reference/)
+
+-   Eine weitergehende Zusammenfassung der Uni Göttingen: [LINK](https://md.psych.bio.uni-goettingen.de/mv/unit/ggplot2/ggplot2.html)
