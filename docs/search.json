@@ -222,5 +222,12 @@
     "title": "Visualisierung mit Grafiken",
     "section": "Weitere Ressourcen",
     "text": "Weitere Ressourcen\nWelche Mittel man für ein schönes Diagramm braucht, hängt sehr davon ab, welche Art von Daten man hat und was man darstellen möchte. In vielen Fällen ist es das Einfachste, nach den Layern zu googeln, die man benutzen will. Hier sind noch einige weitere Ressourcen, in denen man nachschlagen kann:\n\nDas ggplot2-Cheat Sheet: LINK\nDie ggplot2-Dokumentation: LINK\nEine weitergehende Zusammenfassung der Uni Göttingen: LINK"
+  },
+  {
+    "objectID": "06-textdaten.html",
+    "href": "06-textdaten.html",
+    "title": "Textbasierte Daten",
+    "section": "",
+    "text": "Bisher haben wir vor allem zahlenbasierte Daten betrachtet, die man beispielsweise in einem Diagramm darstellen und auch empirisch auswerten kann. Für die meisten Anwendungen reicht das vollkommen aus, aber im Internet und auch im Alltag begegnen uns vor allem textbasierte Daten, das heißt Wörter, Sätze, Dokumente und ganze Sammlungen an Texten. In dieser Einheit wagen wir einen Exkurs hin zu dieser Art von Daten, mit denen wir ganz andere Untersuchungen anstellen können als mit Zahlen allein. Zum Beispiel können wir untersuchen:\n\nWelche Wörter in einer Sorte Text am häufigsten vorkommen und sie mit anderen Texten vergleichen\nWie die Stimmung (das Sentiment) dieser Texte ist oder\nOb es bei Immobilien einen Zusammenhang zwischen Wortwahl und Kaufpreis gibt.\n\nUm diesen Zielen näher zu kommen, benutzen wir die Datei angebote_1000.csv. Sie enthält Daten zu über 200.000 Immobilienangeboten aus den Jahren 2018 und 2019. Diese Daten wurden entnommen aus diesem Kaggle-Datensatz und stammen von der Seite immobilienscout24.de."
   }
 ]
