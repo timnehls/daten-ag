@@ -2,6 +2,8 @@
 title: "Textbasierte Daten"
 ---
 
+## Warum textbasierte Daten?
+
 Bisher haben wir vor allem zahlenbasierte Daten betrachtet, die man beispielsweise in einem Diagramm darstellen und auch empirisch auswerten kann. Für die meisten Anwendungen reicht das vollkommen aus, aber im Internet und auch im Alltag begegnen uns vor allem textbasierte Daten, das heißt Wörter, Sätze, Dokumente und ganze Sammlungen an Texten. In dieser Einheit wagen wir einen Exkurs hin zu dieser Art von Daten, mit denen wir ganz andere Untersuchungen anstellen können als mit Zahlen allein. Zum Beispiel können wir untersuchen:
 
 -   Welche Wörter in einer Sorte Text am häufigsten vorkommen und sie mit anderen Texten vergleichen
@@ -11,3 +13,186 @@ Bisher haben wir vor allem zahlenbasierte Daten betrachtet, die man beispielswei
 -   Ob es bei Immobilien einen Zusammenhang zwischen Wortwahl und Kaufpreis gibt.
 
 Um diesen Zielen näher zu kommen, benutzen wir die Datei [angebote_1000.csv](data/angebote_1000.csv). Sie enthält Daten zu über 200.000 Immobilienangeboten aus den Jahren 2018 und 2019. Diese Daten wurden entnommen aus [diesem](https://www.kaggle.com/datasets/corrieaar/apartment-rental-offers-in-germany/data) Kaggle-Datensatz und stammen von der Seite immobilienscout24.de.
+
+Zunächst laden wir die Daten in unseren Arbeitsbereich und schauen sie uns an:
+
+## Datenprojekt
+
+### Daten vorbereiten
+
+```{r}
+library(tidyverse)
+
+inserate <- read_csv("data/angebote_1000.csv")
+inserate
+```
+
+Wir können uns auch anschauen, welche Spalten es gibt und welches Format sie haben:
+
+```{r}
+inserate %>% 
+  glimpse()
+```
+
+Fokussieren wir uns auf die Spalten `totalRent`, `description` und `facilities`, sowie die `scoutId`, die das jeweilige Angebot identifiziert.
+
+```{r}
+inserate_textdaten <-
+  inserate %>% 
+  select(scoutId, totalRent, description, facilities)
+
+inserate_textdaten
+```
+
+Wir wollen nur Angebote betrachten, die einen Preis sowie eine generelle Beschreibung haben.
+
+```{r}
+relevante_inserate <-
+  inserate_textdaten %>% 
+  drop_na(totalRent, description)
+
+relevante_inserate
+```
+
+Wie wir sehen können, gibt es in den Beschreibungstexten die Zeichenfolge `\n`. Diese beschreibt einen Zeilenumbruch (das, was erzeugt wird, wenn man die Entertaste drückt). Wir möchten diese durch ein Leerzeichen ersetzen. Das geht folgendermaßen:
+
+```{r}
+relevante_inserate <-
+  relevante_inserate %>% 
+  mutate(description = str_replace_all(description, "\n", " "),
+         facilities = str_replace_all(facilities, "\n", " "))
+```
+
+Nach diesem Entfernen können wir zum Beispiel die erste Beschreibung ganz normal lesen:
+
+```{r}
+relevante_inserate %>% 
+  select(description) %>%
+  head(1) %>% 
+  pull()
+```
+
+### Daten analysieren
+
+Wir können nun mit den Daten arbeiten. Schauen wir uns zum Beispiel einmal an, welche Wörter am häufigsten in den Inseratsbeschreibungen vorkommen.
+
+Hierfür brauchen wir die Library `tidytext`.
+
+```{r}
+#| eval: false
+
+install.packages("tidytext")
+```
+
+```{r}
+library(tidytext)
+
+tokens <- 
+  relevante_inserate %>%
+  select(description) %>%
+  unnest_tokens(input = description,
+                output = word,
+                to_lower = TRUE)
+```
+
+#### Häufigkeitsliste
+
+Der obenstehende Code erzeugt einen Tibble mit allen Wörtern (*tokens*), die in den Texten vorkommen. Wir können nun ausgeben lassen, wie oft jedes Wort vorkommt und die Wörter nach Häufigkeit sortieren:
+
+```{r}
+tokens %>% 
+  count(word, sort = TRUE) 
+```
+
+Wir sehen, dass Wörter wie "und", "die", "mit", ... besonders häufig vorkommen, also Wörter, die keinen Aufschluss über den Inhalt der Beschreibung geben. Wir können diese Wörter, die sogenannten *Stoppwörter*, entfernen. Hierfür brauchen wir die Library `stopwords`.
+
+```{r}
+#| eval: false
+
+install.packages("stopwords")
+```
+
+```{r}
+stoppwoerter <- 
+  get_stopwords("de") %>% 
+  pull(word)
+
+tokens_relevant <-
+  tokens %>% 
+  filter(!word %in% stoppwoerter)
+```
+
+```{r}
+haeufigkeitsliste <-
+  tokens_relevant %>% 
+  count(word, sort = TRUE)
+
+haeufigkeitsliste
+```
+
+Wir sehen, dass das häufigste (relevante) Wort in unseren Inseraten "Wohnung" ist, was nicht überraschend ist (wir betrachten Wohnungsinserate).
+
+#### Wordwolke
+
+Mithilfe der Häufigkeitsliste können wir eine Wordwolke erstellen. Dafür brauchen wir die Library `wordcloud`:
+
+```{r}
+#| eval: false
+
+install.packages("wordcloud")
+```
+
+```{r}
+library(wordcloud)
+```
+
+```{r}
+#| eval: false
+wordcloud(
+  words = haeufigkeitsliste$word,
+  freq = haeufigkeitsliste$n
+)
+```
+
+Wir sehen: das sind zu viele Wörter für eine Wortwolke. Nehmen wir die 100 häufigsten Wörter:
+
+```{r}
+wordcloud(
+  words = haeufigkeitsliste$word[1:100],
+  freq = haeufigkeitsliste$n[1:100]
+)
+```
+
+#### Sentimentanalyse
+
+Nun haben wir uns angesehen, welche Wörter in den Beschreibungstexten häufig vorkommen. Nun wollen wir die Texte aber weiter auf ihre Stimmung analysieren. Im Deutschen ist das nicht ganz so komfortabel möglich wie im Englischen, wo zahlreiche Libraries zur Verfügung stehen.
+
+Was benötigen wir, um einen Text auf seine Stimmung hin zu analysieren?
+
+1.  Den Text, den wir analysieren wollen
+2.  Eine Liste, die jedem Wort eine Stimmung zuordnet (positiv, negativ, neutral, ...)
+
+Wir beginnen mit dem zweiten Schritt und laden eine Wortliste herunter, die deutsche Wörter enthält. Hierzu hat der Nutzer *georgeblck* auf GitHub ein Skript geschrieben, das unter [diesem Link](https://gist.githubusercontent.com/georgeblck/98d6e4184c27dbe667f40105b9e95b30/raw/48075da5ca511425cac5dbf8190df9293c87e2a6/getGermanSentiments.R) eingesehen und in veränderter Form unter [diesem Link](german_sentiment/getGermanSentiments.R) heruntergeladen werden kann.
+
+Wir können das Skript komplett ausführen, indem wir auf `Source` gehen (rechts oben in der Leiste über dem Code). Der Dataframe `sentiDat` ist dann unsere Wortliste. Falls etwas nicht funktioniert, kann sie auch unter [diesem Link](data/sentiment_liste.csv) heruntergeladen werden und dann mit diesem Code in den Arbeitsbereich geladen werden:
+
+```{r}
+# "data/" etc. hängt natürlich vom Speicherort ab
+sentiDat <- read_csv("data/sentiment_liste.csv")
+```
+
+Schauen wir uns diese Liste oder auch *Lexikon* einmal an.
+
+```{r}
+sentiDat
+```
+
+Eine Erklärung der Spalten:
+
+-   type: ist das Wort positiv (pos) oder negativ (neg)?
+
+-   Wert: wie positiv (+) /negativ (-) ist das Wort? (Von -1 bis 1)
+
+-   POS: Part Of Speech: Welche Funktion hat das Wort? (NN: Nomen, VVINF: Verben, ADJX: Adjektive, ADV: Adverbien)
+
+-   Wort: das gefragte Wort

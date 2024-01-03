@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
 <title>Data Science-AG - Textbasierte Daten</title>
 <style>
 code{white-space: pre-wrap;}
@@ -20,8 +17,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -38,8 +68,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -58,18 +87,12 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-
-<link rel="stylesheet" href="styles.css">
+}</script><link rel="stylesheet" href="styles.css">
 </head>
-
 <body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark border-bottom">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark border-bottom"><div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Data Science-AG</span>
@@ -81,20 +104,18 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
+<li class="nav-item">
     <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Home</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+<div class="quarto-navbar-tools ms-auto">
     <a href="mailto:mail@timnehls.de" rel="" title="Eine Frage stellen" class="quarto-navigation-tool px-1" aria-label="Eine Frage stellen"><i class="bi bi-envelope-at"></i></a>
     <a href="https://github.com/timnehls/ag-website" rel="" title="GitHub Repository" class="quarto-navigation-tool px-1" aria-label="GitHub Repository"><i class="bi bi-github"></i></a>
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -105,20 +126,16 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Überblick</span></a>
@@ -133,8 +150,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-installation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1.1 Installation</span></a>
@@ -147,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -157,8 +174,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-datenstrukturen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2.1 Datentypen und Datenstrukturen</span></a>
@@ -177,20 +194,27 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="06-textdaten.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#warum-textbasierte-daten" id="toc-warum-textbasierte-daten" class="nav-link active" data-scroll-target="#warum-textbasierte-daten">Warum textbasierte Daten?</a></li>
+  <li>
+<a href="#datenprojekt" id="toc-datenprojekt" class="nav-link" data-scroll-target="#datenprojekt">Datenprojekt</a>
+  <ul class="collapse">
+<li><a href="#daten-vorbereiten" id="toc-daten-vorbereiten" class="nav-link" data-scroll-target="#daten-vorbereiten">Daten vorbereiten</a></li>
+  <li><a href="#daten-analysieren" id="toc-daten-analysieren" class="nav-link" data-scroll-target="#daten-analysieren">Daten analysieren</a></li>
+  </ul>
+</li>
+  </ul><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/timnehls/ag-website/edit/main/06-textdaten.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/timnehls/ag-website/issues/new" class="toc-action">Report an issue</a></p></div></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="06-textdaten.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title">Textbasierte Daten</h1>
 </div>
 
@@ -204,8 +228,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
-</header>
-
+</header><section id="warum-textbasierte-daten" class="level2"><h2 class="anchored" data-anchor-id="warum-textbasierte-daten">Warum textbasierte Daten?</h2>
 <p>Bisher haben wir vor allem zahlenbasierte Daten betrachtet, die man beispielsweise in einem Diagramm darstellen und auch empirisch auswerten kann. Für die meisten Anwendungen reicht das vollkommen aus, aber im Internet und auch im Alltag begegnen uns vor allem textbasierte Daten, das heißt Wörter, Sätze, Dokumente und ganze Sammlungen an Texten. In dieser Einheit wagen wir einen Exkurs hin zu dieser Art von Daten, mit denen wir ganz andere Untersuchungen anstellen können als mit Zahlen allein. Zum Beispiel können wir untersuchen:</p>
 <ul>
 <li><p>Welche Wörter in einer Sorte Text am häufigsten vorkommen und sie mit anderen Texten vergleichen</p></li>
@@ -213,11 +236,337 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Ob es bei Immobilien einen Zusammenhang zwischen Wortwahl und Kaufpreis gibt.</p></li>
 </ul>
 <p>Um diesen Zielen näher zu kommen, benutzen wir die Datei <a href="data/angebote_1000.csv">angebote_1000.csv</a>. Sie enthält Daten zu über 200.000 Immobilienangeboten aus den Jahren 2018 und 2019. Diese Daten wurden entnommen aus <a href="https://www.kaggle.com/datasets/corrieaar/apartment-rental-offers-in-germany/data">diesem</a> Kaggle-Datensatz und stammen von der Seite immobilienscout24.de.</p>
+<p>Zunächst laden wir die Daten in unseren Arbeitsbereich und schauen sie uns an:</p>
+</section><section id="datenprojekt" class="level2"><h2 class="anchored" data-anchor-id="datenprojekt">Datenprojekt</h2>
+<section id="daten-vorbereiten" class="level3"><h3 class="anchored" data-anchor-id="daten-vorbereiten">Daten vorbereiten</h3>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">inserate</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data/angebote_1000.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 1000 Columns: 49
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (20): regio1, heatingType, telekomTvOffer, firingTypes, geo_bln, houseNu...
+dbl (23): serviceCharge, telekomHybridUploadSpeed, picturecount, pricetrend,...
+lgl  (6): newlyConst, balcony, hasKitchen, cellar, lift, garden
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">inserate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,000 × 49
+   regio1        serviceCharge heatingType telekomTvOffer telekomHybridUploadS…¹
+   &lt;chr&gt;                 &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;                           &lt;dbl&gt;
+ 1 Nordrhein_We…         245   central_he… ONE_YEAR_FREE                      NA
+ 2 Rheinland_Pf…         134   self_conta… ONE_YEAR_FREE                      NA
+ 3 Sachsen               255   floor_heat… ONE_YEAR_FREE                      10
+ 4 Sachsen                58.2 district_h… ONE_YEAR_FREE                      NA
+ 5 Bremen                138   self_conta… &lt;NA&gt;                               NA
+ 6 Sachsen                70   self_conta… ONE_YEAR_FREE                      10
+ 7 Bremen                 88   central_he… ONE_YEAR_FREE                      10
+ 8 Baden_Württe…         110   oil_heating ONE_YEAR_FREE                      NA
+ 9 Nordrhein_We…          95   self_conta… ONE_YEAR_FREE                      NA
+10 Sachsen                88   &lt;NA&gt;        ONE_YEAR_FREE                      NA
+# ℹ 990 more rows
+# ℹ abbreviated name: ¹​telekomHybridUploadSpeed
+# ℹ 44 more variables: newlyConst &lt;lgl&gt;, balcony &lt;lgl&gt;, picturecount &lt;dbl&gt;,
+#   pricetrend &lt;dbl&gt;, telekomUploadSpeed &lt;dbl&gt;, totalRent &lt;dbl&gt;,
+#   yearConstructed &lt;dbl&gt;, scoutId &lt;dbl&gt;, noParkSpaces &lt;dbl&gt;,
+#   firingTypes &lt;chr&gt;, hasKitchen &lt;lgl&gt;, geo_bln &lt;chr&gt;, cellar &lt;lgl&gt;,
+#   yearConstructedRange &lt;dbl&gt;, baseRent &lt;dbl&gt;, houseNumber &lt;chr&gt;, …</code></pre>
+</div>
+</div>
+<p>Wir können uns auch anschauen, welche Spalten es gibt und welches Format sie haben:</p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">inserate</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,000
+Columns: 49
+$ regio1                   &lt;chr&gt; "Nordrhein_Westfalen", "Rheinland_Pfalz", "Sa…
+$ serviceCharge            &lt;dbl&gt; 245.00, 134.00, 255.00, 58.15, 138.00, 70.00,…
+$ heatingType              &lt;chr&gt; "central_heating", "self_contained_central_he…
+$ telekomTvOffer           &lt;chr&gt; "ONE_YEAR_FREE", "ONE_YEAR_FREE", "ONE_YEAR_F…
+$ telekomHybridUploadSpeed &lt;dbl&gt; NA, NA, 10, NA, NA, 10, 10, NA, NA, NA, 10, N…
+$ newlyConst               &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, FALSE, FALSE, FALS…
+$ balcony                  &lt;lgl&gt; FALSE, TRUE, TRUE, TRUE, TRUE, FALSE, TRUE, F…
+$ picturecount             &lt;dbl&gt; 6, 8, 8, 9, 19, 9, 5, 5, 7, 11, 9, 4, 3, 12, …
+$ pricetrend               &lt;dbl&gt; 4.62, 3.47, 2.72, 1.53, 2.46, 1.01, 1.89, 3.7…
+$ telekomUploadSpeed       &lt;dbl&gt; 10.0, 10.0, 2.4, 40.0, NA, 2.4, 2.4, 40.0, 40…
+$ totalRent                &lt;dbl&gt; 840.00, NA, 1300.00, NA, 903.00, 380.00, 584.…
+$ yearConstructed          &lt;dbl&gt; 1965, 1871, 2019, 1964, 1950, NA, 1959, 1970,…
+$ scoutId                  &lt;dbl&gt; 96107057, 111378734, 113147523, 108890903, 11…
+$ noParkSpaces             &lt;dbl&gt; 1, 2, 1, NA, NA, NA, NA, 1, NA, NA, NA, NA, N…
+$ firingTypes              &lt;chr&gt; "oil", "gas", NA, "district_heating", "gas", …
+$ hasKitchen               &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FAL…
+$ geo_bln                  &lt;chr&gt; "Nordrhein_Westfalen", "Rheinland_Pfalz", "Sa…
+$ cellar                   &lt;lgl&gt; TRUE, FALSE, TRUE, FALSE, FALSE, TRUE, TRUE, …
+$ yearConstructedRange     &lt;dbl&gt; 2, 1, 9, 2, 1, NA, 2, 2, 2, 1, 1, 1, 2, 9, 4,…
+$ baseRent                 &lt;dbl&gt; 595.00, 800.00, 965.00, 343.00, 765.00, 310.0…
+$ houseNumber              &lt;chr&gt; "244", NA, "4", "35", "10", "14", "35", NA, "…
+$ livingSpace              &lt;dbl&gt; 86.00, 89.00, 83.80, 58.15, 84.97, 62.00, 60.…
+$ geo_krs                  &lt;chr&gt; "Dortmund", "Rhein_Pfalz_Kreis", "Dresden", "…
+$ condition                &lt;chr&gt; "well_kept", "refurbished", "first_time_use",…
+$ interiorQual             &lt;chr&gt; "normal", "normal", "sophisticated", NA, NA, …
+$ petsAllowed              &lt;chr&gt; NA, "no", NA, NA, NA, NA, NA, "no", "negotiab…
+$ street                   &lt;chr&gt; "Sch&amp;uuml;ruferstra&amp;szlig;e", "no_information…
+$ streetPlain              &lt;chr&gt; "Schüruferstraße", NA, "Turnerweg", "Glück-Au…
+$ lift                     &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, FALSE, FALSE, FALS…
+$ baseRentRange            &lt;dbl&gt; 4, 5, 6, 2, 5, 2, 3, 4, 1, 1, 2, 5, 6, 6, 1, …
+$ typeOfFlat               &lt;chr&gt; "ground_floor", "ground_floor", "apartment", …
+$ geo_plz                  &lt;chr&gt; "44269", "67459", "01097", "09599", "28213", …
+$ noRooms                  &lt;dbl&gt; 4.0, 3.0, 3.0, 3.0, 3.0, 2.0, 3.0, 2.0, 2.5, …
+$ thermalChar              &lt;dbl&gt; 181.40, NA, NA, 86.00, 188.90, NA, 63.00, 138…
+$ floor                    &lt;dbl&gt; 1, NA, 3, 3, 1, 1, NA, 2, 2, 3, 1, NA, 4, 0, …
+$ numberOfFloors           &lt;dbl&gt; 3, NA, 4, NA, NA, 4, NA, 2, 5, NA, NA, NA, 4,…
+$ noRoomsRange             &lt;dbl&gt; 4, 3, 3, 3, 3, 2, 3, 2, 2, 2, 3, 4, 4, 3, 1, …
+$ garden                   &lt;lgl&gt; TRUE, FALSE, FALSE, FALSE, FALSE, TRUE, FALSE…
+$ livingSpaceRange         &lt;dbl&gt; 4, 4, 4, 2, 4, 3, 2, 2, 2, 1, 3, 4, 6, 4, 1, …
+$ regio2                   &lt;chr&gt; "Dortmund", "Rhein_Pfalz_Kreis", "Dresden", "…
+$ regio3                   &lt;chr&gt; "Schüren", "Böhl_Iggelheim", "Äußere_Neustadt…
+$ description              &lt;chr&gt; "Die ebenerdig zu erreichende Erdgeschosswohn…
+$ facilities               &lt;chr&gt; "Die Wohnung ist mit Laminat ausgelegt. Das B…
+$ heatingCosts             &lt;dbl&gt; NA, NA, NA, 87.23, NA, NA, 44.00, NA, NA, NA,…
+$ energyEfficiencyClass    &lt;chr&gt; NA, NA, NA, NA, NA, NA, "B", "E", NA, NA, NA,…
+$ lastRefurbish            &lt;dbl&gt; NA, 2019, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ electricityBasePrice     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ electricityKwhPrice      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ date                     &lt;chr&gt; "May19", "May19", "Oct19", "May19", "Feb20", …</code></pre>
+</div>
+</div>
+<p>Fokussieren wir uns auf die Spalten <code>totalRent</code>, <code>description</code> und <code>facilities</code>, sowie die <code>scoutId</code>, die das jeweilige Angebot identifiziert.</p>
+<div class="cell">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">inserate_textdaten</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">inserate</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">scoutId</span>, <span class="va">totalRent</span>, <span class="va">description</span>, <span class="va">facilities</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">inserate_textdaten</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,000 × 4
+     scoutId totalRent description                                    facilities
+       &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                                          &lt;chr&gt;     
+ 1  96107057      840  "Die ebenerdig zu erreichende Erdgeschosswohn… "Die Wohn…
+ 2 111378734       NA  "Alles neu macht der Mai – so kann es auch fü…  &lt;NA&gt;     
+ 3 113147523     1300  "Der Neubau entsteht im Herzen der Dresdner N… "* 9 m² B…
+ 4 108890903       NA  "Abseits von Lärm und Abgasen in Ihre neue Wo…  &lt;NA&gt;     
+ 5 114751222      903  "Es handelt sich hier um ein saniertes Mehrfa… "Diese Wo…
+ 6 114391930      380  "Am Bahnhof 14 in Freiberg\nHeizkosten und Wa…  &lt;NA&gt;     
+ 7 115270775      584. "+ Komfortabler Bodenbelag: Die Wohnung ist z… "Rollläde…
+ 8 106416361      690  "Diese ansprechende, lichtdurchflutete DG-Woh… "Parkett,…
+ 9  91383597       NA  "Sie sind auf der Suche nach einer gepflegten… "In Ihrem…
+10 112923517      307  "Gemütliche 2-Raum Wohnung in Chemnitz.&nbsp; komp…  &lt;NA&gt;     
+# ℹ 990 more rows</code></pre>
+</div>
+</div>
+<p>Wir wollen nur Angebote betrachten, die einen Preis sowie eine generelle Beschreibung haben.</p>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">relevante_inserate</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">inserate_textdaten</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">totalRent</span>, <span class="va">description</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">relevante_inserate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 855 × 4
+     scoutId totalRent description                                    facilities
+       &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                                          &lt;chr&gt;     
+ 1  96107057      840  "Die ebenerdig zu erreichende Erdgeschosswohn… "Die Wohn…
+ 2 113147523     1300  "Der Neubau entsteht im Herzen der Dresdner N… "* 9 m² B…
+ 3 114751222      903  "Es handelt sich hier um ein saniertes Mehrfa… "Diese Wo…
+ 4 114391930      380  "Am Bahnhof 14 in Freiberg\nHeizkosten und Wa…  &lt;NA&gt;     
+ 5 115270775      584. "+ Komfortabler Bodenbelag: Die Wohnung ist z… "Rollläde…
+ 6 106416361      690  "Diese ansprechende, lichtdurchflutete DG-Woh… "Parkett,…
+ 7 112923517      307  "Gemütliche 2-Raum Wohnung in Chemnitz.&nbsp; komp…  &lt;NA&gt;     
+ 8 109842225      555  "Gern möchten wir Ihnen diese 3-Zimmer-Wohnun… "- Wohnzi…
+ 9 111251778      920  "Altes Sandsteinhaus unter Denkmalschutz im J… "Die Char…
+10 101730329     1150  "Die angebotene Wohnfläche befindet sich im d… "Die Wohn…
+# ℹ 845 more rows</code></pre>
+</div>
+</div>
+<p>Wie wir sehen können, gibt es in den Beschreibungstexten die Zeichenfolge <code>\n</code>. Diese beschreibt einen Zeilenumbruch (das, was erzeugt wird, wenn man die Entertaste drückt). Wir möchten diese durch ein Leerzeichen ersetzen. Das geht folgendermaßen:</p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">relevante_inserate</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">relevante_inserate</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>description <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">description</span>, <span class="st">"\n"</span>, <span class="st">" "</span><span class="op">)</span>,</span>
+<span>         facilities <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_replace.html">str_replace_all</a></span><span class="op">(</span><span class="va">facilities</span>, <span class="st">"\n"</span>, <span class="st">" "</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nach diesem Entfernen können wir zum Beispiel die erste Beschreibung ganz normal lesen:</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">relevante_inserate</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">description</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Die ebenerdig zu erreichende Erdgeschosswohnung befindet sich in einem gepflegten 8-Familienhaus. Aufgrund der Hanglage bietet sich ein unverbaubarer Blick ins Grüne."</code></pre>
+</div>
+</div>
+</section><section id="daten-analysieren" class="level3"><h3 class="anchored" data-anchor-id="daten-analysieren">Daten analysieren</h3>
+<p>Wir können nun mit den Daten arbeiten. Schauen wir uns zum Beispiel einmal an, welche Wörter am häufigsten in den Inseratsbeschreibungen vorkommen.</p>
+<p>Hierfür brauchen wir die Library <code>tidytext</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidytext"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/juliasilge/tidytext">tidytext</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">tokens</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="va">relevante_inserate</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">description</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/tidytext/man/unnest_tokens.html">unnest_tokens</a></span><span class="op">(</span>input <span class="op">=</span> <span class="va">description</span>,</span>
+<span>                output <span class="op">=</span> <span class="va">word</span>,</span>
+<span>                to_lower <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="häufigkeitsliste" class="level4"><h4 class="anchored" data-anchor-id="häufigkeitsliste">Häufigkeitsliste</h4>
+<p>Der obenstehende Code erzeugt einen Tibble mit allen Wörtern (<em>tokens</em>), die in den Texten vorkommen. Wir können nun ausgeben lassen, wie oft jedes Wort vorkommt und die Wörter nach Häufigkeit sortieren:</p>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">tokens</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">word</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8,041 × 2
+   word        n
+   &lt;chr&gt;   &lt;int&gt;
+ 1 und      1931
+ 2 die      1522
+ 3 mit      1326
+ 4 in       1234
+ 5 der      1075
+ 6 wohnung   967
+ 7 ein       821
+ 8 im        791
+ 9 sich      756
+10 das       706
+# ℹ 8,031 more rows</code></pre>
+</div>
+</div>
+<p>Wir sehen, dass Wörter wie “und”, “die”, “mit”, … besonders häufig vorkommen, also Wörter, die keinen Aufschluss über den Inhalt der Beschreibung geben. Wir können diese Wörter, die sogenannten <em>Stoppwörter</em>, entfernen. Hierfür brauchen wir die Library <code>stopwords</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"stopwords"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">stoppwoerter</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/tidytext/man/get_stopwords.html">get_stopwords</a></span><span class="op">(</span><span class="st">"de"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">word</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">tokens_relevant</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">tokens</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="va">word</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">stoppwoerter</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">haeufigkeitsliste</span> <span class="op">&lt;-</span></span>
+<span>  <span class="va">tokens_relevant</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">word</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">haeufigkeitsliste</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7,875 × 2
+   word         n
+   &lt;chr&gt;    &lt;int&gt;
+ 1 wohnung    967
+ 2 befindet   311
+ 3 zimmer     293
+ 4 2          289
+ 5 küche      256
+ 6 balkon     218
+ 7 sowie      214
+ 8 3          200
+ 9 wurde      200
+10 verfügt    184
+# ℹ 7,865 more rows</code></pre>
+</div>
+</div>
+<p>Wir sehen, dass das häufigste (relevante) Wort in unseren Inseraten “Wohnung” ist, was nicht überraschend ist (wir betrachten Wohnungsinserate).</p>
+</section><section id="wordwolke" class="level4"><h4 class="anchored" data-anchor-id="wordwolke">Wordwolke</h4>
+<p>Mithilfe der Häufigkeitsliste können wir eine Wordwolke erstellen. Dafür brauchen wir die Library <code>wordcloud</code>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"wordcloud"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://blog.fellstat.com/?cat=11">wordcloud</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Lade nötiges Paket: RColorBrewer</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/wordcloud/man/wordcloud.html">wordcloud</a></span><span class="op">(</span></span>
+<span>  words <span class="op">=</span> <span class="va">haeufigkeitsliste</span><span class="op">$</span><span class="va">word</span>,</span>
+<span>  freq <span class="op">=</span> <span class="va">haeufigkeitsliste</span><span class="op">$</span><span class="va">n</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wir sehen: das sind zu viele Wörter für eine Wortwolke. Nehmen wir die 100 häufigsten Wörter:</p>
+<div class="cell">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/wordcloud/man/wordcloud.html">wordcloud</a></span><span class="op">(</span></span>
+<span>  words <span class="op">=</span> <span class="va">haeufigkeitsliste</span><span class="op">$</span><span class="va">word</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">]</span>,</span>
+<span>  freq <span class="op">=</span> <span class="va">haeufigkeitsliste</span><span class="op">$</span><span class="va">n</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">100</span><span class="op">]</span></span>
+<span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="06-textdaten_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section><section id="sentimentanalyse" class="level4"><h4 class="anchored" data-anchor-id="sentimentanalyse">Sentimentanalyse</h4>
+<p>Nun haben wir uns angesehen, welche Wörter in den Beschreibungstexten häufig vorkommen. Nun wollen wir die Texte aber weiter auf ihre Stimmung analysieren. Im Deutschen ist das nicht ganz so komfortabel möglich wie im Englischen, wo zahlreiche Libraries zur Verfügung stehen.</p>
+<p>Was benötigen wir, um einen Text auf seine Stimmung hin zu analysieren?</p>
+<ol type="1">
+<li>Den Text, den wir analysieren wollen</li>
+<li>Eine Liste, die jedem Wort eine Stimmung zuordnet (positiv, negativ, neutral, …)</li>
+</ol>
+<p>Wir beginnen mit dem zweiten Schritt und laden eine Wortliste herunter, die deutsche Wörter enthält. Hierzu hat der Nutzer <em>georgeblck</em> auf GitHub ein Skript geschrieben, das unter <a href="https://gist.githubusercontent.com/georgeblck/98d6e4184c27dbe667f40105b9e95b30/raw/48075da5ca511425cac5dbf8190df9293c87e2a6/getGermanSentiments.R">diesem Link</a> eingesehen und in veränderter Form unter <a href="german_sentiment/getGermanSentiments.R">diesem Link</a> heruntergeladen werden kann.</p>
+<p>Wir können das Skript komplett ausführen, indem wir auf <code>Source</code> gehen (rechts oben in der Leiste über dem Code). Der Dataframe <code>sentiDat</code> ist dann unsere Wortliste. Falls etwas nicht funktioniert, kann sie auch unter <a href="data/sentiment_liste.csv">diesem Link</a> heruntergeladen werden und dann mit diesem Code in den Arbeitsbereich geladen werden:</p>
+<div class="cell">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># "data/" etc. hängt natürlich vom Speicherort ab</span></span>
+<span><span class="va">sentiDat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data/sentiment_liste.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 34603 Columns: 4
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (3): type, POS, Wort
+dbl (1): Wert
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<p>Schauen wir uns diese Liste oder auch <em>Lexikon</em> einmal an.</p>
+<div class="cell">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sentiDat</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 34,603 × 4
+   type     Wert POS   Wort          
+   &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;         
+ 1 neg   -0.058  NN    abbaus        
+ 2 neg   -0.0048 NN    abbruches     
+ 3 neg   -0.0048 NN    abdankungen   
+ 4 neg   -0.0048 NN    abdämpfungen  
+ 5 neg   -0.0048 NN    abfalles      
+ 6 neg   -0.337  NN    abfuhren      
+ 7 neg   -0.346  NN    abgründe      
+ 8 neg   -0.365  NN    abhängigkeiten
+ 9 neg   -0.512  NN    ablehnungen   
+10 neg   -0.0435 NN    ablenkungen   
+# ℹ 34,593 more rows</code></pre>
+</div>
+</div>
+<p>Eine Erklärung der Spalten:</p>
+<ul>
+<li><p>type: ist das Wort positiv (pos) oder negativ (neg)?</p></li>
+<li><p>Wert: wie positiv (+) /negativ (-) ist das Wort? (Von -1 bis 1)</p></li>
+<li><p>POS: Part Of Speech: Welche Funktion hat das Wort? (NN: Nomen, VVINF: Verben, ADJX: Adjektive, ADV: Adverbien)</p></li>
+<li><p>Wort: das gefragte Wort</p></li>
+</ul>
 
 
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -454,4 +803,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/timnehls/ag-website/edit/main/06-textdaten.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/timnehls/ag-website/issues/new" class="toc-action">Report an issue</a></p></div></div></div></div></footer></body></html>
+</body></html>
