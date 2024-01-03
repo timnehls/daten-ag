@@ -1,5 +1,5 @@
 ---
-title: "Visualisierung mit Grafiken"
+title: "2.3 Visualisierung mit Grafiken"
 ---
 
 ## Grundlagen
