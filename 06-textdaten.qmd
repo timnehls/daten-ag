@@ -196,3 +196,95 @@ Eine Erklärung der Spalten:
 -   POS: Part Of Speech: Welche Funktion hat das Wort? (NN: Nomen, VVINF: Verben, ADJX: Adjektive, ADV: Adverbien)
 
 -   Wort: das gefragte Wort
+
+Wir wollen nun unsere Daten so vorbereiten, dass wir am Ende für jedes Inserat einen Sentiment-Score erhalten. Dazu füllen wir die Inserate in eine Liste (jedes Element = ein Inserat) und teilen die Inseratstexte auf in Token (wir erhalten eine Liste mit jedem Element = Tibble der Tokens).
+
+```{r}
+#| output: false
+
+relevante_inserate %>%
+  select(description) %>%
+  apply(1, \(x) tibble(description = x)) %>% 
+  as.list() -> beschreibung_liste
+
+```
+
+```{r}
+#| eval: false
+
+token_liste <- 
+  beschreibung_liste %>% 
+  map(\(x) unnest_tokens(x, word, description))
+```
+
+Nach diesem Aufteilen wollen wir endlich zur Sentimentanalyse kommen. Hierzu suchen wir für jedes Wort, das in der Token-Liste vorkommt, seinen Wert im Lexikon und vereinen diese beiden Einträge zu einer Zeile im jeweiligen Tibble in der Token-Liste.
+
+Hierzu ein Exkurs zu Joins.
+
+##### Joins
+
+Wer bereits SQL kennt, denen wird der Begriff des Joins etwas sagen. Vereinfacht dargestellt ist ein Join nichts anderes als ein Zusammenfügen zweier Tabellen anhand eines gemeinsamen Kriteriums. Wir werden in diesem Kontext drei Joins besprechen:
+
+1.  Left Join (analog: Right Join)
+2.  Inner Join
+3.  Full Join
+
+<u>Left Join</u>
+
+![](left_join.png)
+
+<u>Inner Join</u>
+
+![](inner_join.png)
+
+<u>Full Join</u>
+
+![](full_join.png)
+
+Wir führen nun einen Inner Join für jedes Inserat durch. Dabei ist die linke Tabelle unsere Token-Liste und die rechte Tabelle das Lexikon.
+
+Hierzu benötigen wir die Library `udpipe`, die es uns erlaubt, die Grundformen von Wörtern zu bestimmen (im Lexikon stehen oft nur die Grundformen). Wir filtern die Token nach Adjektiven, Nomen und Verben (wir lassen Wörter wie "der/die/das", "welcher/welche/welches", Satzzeichen und Zahlen aus) und führen dann den Join durch. Für jedes Inserat berechnen wir dann das durchschnittliche Sentiment und schließlich den Durchschnitt über alle Inserate.
+
+```{r}
+# install.packages("udpipe")
+
+library(udpipe)
+
+# ud_model <- udpipe_download_model("german")
+ud_model <- udpipe_load_model("german-gsd-ud-2.5-191206.udpipe")
+
+token_liste <- 
+  beschreibung_liste %>% 
+  map(\(x) pull(x)) %>% 
+  map(\(x) {
+    udpipe_annotate(ud_model, x) %>% 
+      as.data.frame() %>% 
+      filter(upos %in% c("ADJ", "NOUN", "VERB")) %>% 
+      select(lemma)
+  })
+```
+
+```{r}
+sentiment_list <- list()
+
+sentiDat %>% 
+  distinct(Wort, .keep_all = T) -> sentiDat
+
+for (i in seq_along(token_liste)) {
+  sentiment_list[[i]] <-
+    token_liste[[i]] %>%
+    inner_join(sentiDat, by = join_by(lemma == Wort))
+}
+
+sentiment_list %>% 
+  map(\(x) {
+    x %>% 
+      summarise(sentiment = mean(Wert)) %>% 
+      pull()
+  }) %>% 
+  unlist() -> sentimente
+
+mean(sentimente, na.rm = TRUE)
+```
+
+Wir sehen: Mit ungefähr $0,154$ ist das Durchschnittssentiment deutlich über 0. Die Wohnungsinserate sind also sehr positiv formuliert.

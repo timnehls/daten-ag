@@ -87,7 +87,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><link rel="stylesheet" href="styles.css">
+}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><link rel="stylesheet" href="styles.css">
 </head>
 <body class="nav-sidebar floating nav-fixed">
 
@@ -571,9 +571,82 @@ dbl (1): Wert
 <li><p>POS: Part Of Speech: Welche Funktion hat das Wort? (NN: Nomen, VVINF: Verben, ADJX: Adjektive, ADV: Adverbien)</p></li>
 <li><p>Wort: das gefragte Wort</p></li>
 </ul>
+<p>Wir wollen nun unsere Daten so vorbereiten, dass wir am Ende für jedes Inserat einen Sentiment-Score erhalten. Dazu füllen wir die Inserate in eine Liste (jedes Element = ein Inserat) und teilen die Inseratstexte auf in Token (wir erhalten eine Liste mit jedem Element = Tibble der Tokens).</p>
+<div class="cell">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">relevante_inserate</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">description</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/apply.html">apply</a></span><span class="op">(</span><span class="fl">1</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>description <span class="op">=</span> <span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html">as.list</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">beschreibung_liste</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">token_liste</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="va">beschreibung_liste</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span>\<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/pkg/tidytext/man/unnest_tokens.html">unnest_tokens</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">word</span>, <span class="va">description</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nach diesem Aufteilen wollen wir endlich zur Sentimentanalyse kommen. Hierzu suchen wir für jedes Wort, das in der Token-Liste vorkommt, seinen Wert im Lexikon und vereinen diese beiden Einträge zu einer Zeile im jeweiligen Tibble in der Token-Liste.</p>
+<p>Hierzu ein Exkurs zu Joins.</p>
+<section id="joins" class="level5"><h5 class="anchored" data-anchor-id="joins">Joins</h5>
+<p>Wer bereits SQL kennt, denen wird der Begriff des Joins etwas sagen. Vereinfacht dargestellt ist ein Join nichts anderes als ein Zusammenfügen zweier Tabellen anhand eines gemeinsamen Kriteriums. Wir werden in diesem Kontext drei Joins besprechen:</p>
+<ol type="1">
+<li>Left Join (analog: Right Join)</li>
+<li>Inner Join</li>
+<li>Full Join</li>
+</ol>
+<p><u>Left Join</u></p>
+<p><img src="left_join.png" class="img-fluid"></p>
+<p><u>Inner Join</u></p>
+<p><img src="inner_join.png" class="img-fluid"></p>
+<p><u>Full Join</u></p>
+<p><img src="full_join.png" class="img-fluid"></p>
+<p>Wir führen nun einen Inner Join für jedes Inserat durch. Dabei ist die linke Tabelle unsere Token-Liste und die rechte Tabelle das Lexikon.</p>
+<p>Hierzu benötigen wir die Library <code>udpipe</code>, die es uns erlaubt, die Grundformen von Wörtern zu bestimmen (im Lexikon stehen oft nur die Grundformen). Wir filtern die Token nach Adjektiven, Nomen und Verben (wir lassen Wörter wie “der/die/das”, “welcher/welche/welches”, Satzzeichen und Zahlen aus) und führen dann den Join durch. Für jedes Inserat berechnen wir dann das durchschnittliche Sentiment und schließlich den Durchschnitt über alle Inserate.</p>
+<div class="cell">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># install.packages("udpipe")</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://bnosac.github.io/udpipe/en/index.html">udpipe</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># ud_model &lt;- udpipe_download_model("german")</span></span>
+<span><span class="va">ud_model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/udpipe/man/udpipe_load_model.html">udpipe_load_model</a></span><span class="op">(</span><span class="st">"german-gsd-ud-2.5-191206.udpipe"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">token_liste</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="va">beschreibung_liste</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span>\<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span>\<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/udpipe/man/udpipe_annotate.html">udpipe_annotate</a></span><span class="op">(</span><span class="va">ud_model</span>, <span class="va">x</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>      <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">upos</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ADJ"</span>, <span class="st">"NOUN"</span>, <span class="st">"VERB"</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">lemma</span><span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sentiment_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">sentiDat</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html">distinct</a></span><span class="op">(</span><span class="va">Wort</span>, .keep_all <span class="op">=</span> <span class="cn">T</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">sentiDat</span></span>
+<span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_along</a></span><span class="op">(</span><span class="va">token_liste</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">sentiment_list</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span></span>
+<span>    <span class="va">token_liste</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">inner_join</a></span><span class="op">(</span><span class="va">sentiDat</span>, by <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/join_by.html">join_by</a></span><span class="op">(</span><span class="va">lemma</span> <span class="op">==</span> <span class="va">Wort</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">sentiment_list</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span>\<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">x</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>sentiment <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Wert</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">sentimente</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sentimente</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1537123</code></pre>
+</div>
+</div>
+<p>Wir sehen: Mit ungefähr <span class="math inline">\(0,154\)</span> ist das Durchschnittssentiment deutlich über 0. Die Wohnungsinserate sind also sehr positiv formuliert.</p>
 
 
-</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");

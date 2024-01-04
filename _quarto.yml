@@ -37,6 +37,8 @@ website:
         - 05-visualisierung.qmd
       - text: "---"
       - 06-textdaten.qmd
+      - text: "---"
+      - 07-statistik.qmd
   repo-url: "https://github.com/timnehls/ag-website"
   repo-actions: [edit, issue]
   reader-mode: false
