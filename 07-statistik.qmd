@@ -2,4 +2,14 @@
 title: "4. Nützliche Statistik"
 ---
 
-*TODO*
+Auch wenn diese AG nur eine Einführung in die Arbeit mit Daten bieten kann, ist es von Vorteil, wenn man einige Methoden zu deren Auswertung kennt.
+
+## Methode der kleinsten Quadrate/Ordinary Least Squares
+
+Ein jeder Statistikkurs behandelt die *Methode der kleinsten Quadrate* oder auf Englisch *Ordinary Least Squares*. Vereinfacht gesagt kann man mit dieser Methode die "optimale" Ausgleichsgerade finden. Sie funktioniert intuitiv wie folgt:
+
+![](ols_intuition.jpg)
+
+Die schwarzen Kreuze sind unsere Datenpunkte. Die rote Ausgleichsgerade wird nun so verlegt, dass die Summe der grünen Quadrate möglichst klein ist. Es kann nachgewiesen werden, dass diese rote Gerade die "beste Ausgleichsgerade" ist.
+
+Zur mathematischen Erläuterung geht es [hier](07-1-mathematik-ols.qmd) lang.

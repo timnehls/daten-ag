@@ -1,0 +1,115 @@
+---
+title: "4.1 Mathematik des Kleinste-Quadrate-Schätzers"
+---
+
+Um zu verstehen, wie die *Methode der kleinsten Quadrate* funktioniert, ist es sinnvoll, sich der Sache mathematisch zu nähern.
+
+Wir wollen durch unsere Datenpunkte eine Gerade so legen, dass sie in der Mitte durch unsere Punkte geht. Dabei können wir die Datenpunkte als Punkte $P_i(x_i|y_i)$ im zweidimensionalen Koordinatensystem beschreiben. Für die Gerade können wir dann die Funktion $\hat{y}=a+bx$ formulieren, wobei wir $a$ und $b$ mithilfe unserer Punkte berechnen müssen.
+
+Schauen wir uns einen Punkt $P_n(x_n|y_n)$ an. Er liegt mit einem gewissen Abstand zu der später aufgestellten Gerade (der Abstand kann auch 0 sein).
+
+![](ols_2.jpg)
+
+Wir können (das ist später hilfreich) diesen Abstand auch als Quadrat aufmalen, denn ansonsten müssen wir mit Beträgen arbeiten. Das geht, denn wenn wir die Summe der Quadrate minimieren, minimieren wir auch die Abstände der Punkte zur Ausgleichsgeraden.
+
+![](ols_1.jpg)
+
+Wir können die Fläche des Quadrats schreiben als $(y_n-\hat{y}_n)^2$. Dabei ist $\hat{y}_n$ der y-Wert der Ausgleichsgeraden an der Stelle $x_n$ (unsere Gerade hat die Gleichung $\hat{y}=a+bx$).
+
+Nummerieren wir nun die $N=4$ Quadrate von 1 bis 4:
+
+![](ols_3.jpg)
+
+Die Summe aller Quadrate ist folglich $\sum\limits_{i=1}^{N}(y_i-\hat{y}_i)^2$. Wir wissen: $\hat{y}_i=a+bx_i$, also ist die Summe aller Quadrate $\sum\limits_{i=1}^{N}(y_i-a-bx_i)^2$. Nennen wir diesen Term $r(a,b)$.
+
+Nun wollen wir $a$ und $b$ berechnen, so dass der Abstand der Punkte zur Geraden minimal wird, also müssen wir nach der vorherigen Umformulierung die Summe aller Quadrate minimieren.
+
+**a berechnen**
+
+Um den Wert für $a$ zu berechnen, für den der Term $r(a,b)$ minimal wird, müssen wir ihn nach $a$ ableiten und gleich 0 setzen.
+
+$$
+r(a,b) = \sum\limits_{i=1}^N (y_i-a-bx_i)^2
+$$
+
+$$
+r'_a(a,b) = 0 = \sum\limits_{i=1}^N 2\cdot (-1) \cdot (y_i-a-bx_i) 
+$$
+
+$$
+0 = 2\cdot (-1)\cdot \sum\limits_{i=1}^N (y_i-a-bx_i)
+$$
+
+$$
+0 = \sum\limits_{i=1}^N (y_i-a-bx_i)
+$$
+
+$$ 
+0 = \sum\limits_{i=1}^N y_i - \sum\limits_{i=1}^N a - b \sum\limits_{i=1}^N x_i
+$$
+
+$$
+0 = \sum\limits_{i=1}^N y_i - N \cdot a - b \sum\limits_{i=1}^N x_i
+$$
+
+$$
+N \cdot a = \sum\limits_{i=1}^N y_i - b \sum\limits_{i=1}^N x_i
+$$
+
+$$
+a = \frac{\sum\limits_{i=1}^N y_i - b \sum\limits_{i=1}^N x_i}{N}
+$$
+
+$$
+a = \frac{\sum\limits_{i=1}^N y_i}{N} - b \frac{\sum\limits_{i=1}^N x_i}{N}
+$$
+
+$$
+\underline{\underline{a = \bar{y}-b\bar{x}}}
+$$
+
+**b berechnen**
+
+Wir beginnen erneut mit unserer Formel für die Summe der Quadrate:
+
+$$
+r(a,b) = \sum\limits_{i=1}^N (y_i-a-bx_i)^2
+$$
+
+$$
+r'_b(a,b)= 0 =\sum\limits_{i=1}^N 2 \cdot (-x_i)\cdot (y_i-a-bx_i)
+$$
+
+$$
+0 = -2 \cdot \sum\limits_{i=1}^N x_i \cdot (y_i-a-bx_i)
+$$
+
+Nun können wir für $a$ direkt den Wert von oben einsetzen:
+
+$$
+0 = -2 \cdot \sum\limits_{i=1}^{N} x_i \cdot (y_i - (\bar{y} - b\bar{x}) - bx_i)
+$$
+
+$$
+0 = \sum\limits_{i=1}^{N} (x_iy_i - x_i\bar{y} + b\bar{x}x_i - bx_i^2)
+$$
+
+$$
+0 = \sum\limits_{i=1}^{N} (x_iy_i - x_i\bar{y} - b \cdot (x_i^2 - \bar{x}x_i) )
+$$
+
+$$
+0 = \sum\limits_{i=1}^{N} (x_iy_i-x_i\bar{y}) - b\sum\limits_{i=1}^{N} (x_i^2-\bar{x}x_i)
+$$
+
+$$
+b\sum\limits_{i=1}^{N} (x_i^2-\bar{x}x_i) = \sum\limits_{i=1}^{N} (x_iy_i-x_i\bar{y})
+$$
+
+$$
+b = \frac{\sum\limits_{i=1}^{N} (x_iy_i-x_i\bar{y})}{\sum\limits_{i=1}^{N} (x_i^2-\bar{x}x_i)} 
+$$
+
+$$
+\underline{\underline{b = \frac{\sum\limits_{i=1}^N x_iy_i - n\bar{x}\bar{y}}{\sum\limits_{i=1}^N x_i^2 - n\bar{x}^2}}}
+$$
