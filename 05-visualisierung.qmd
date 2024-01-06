@@ -13,7 +13,7 @@ Zunächst laden wir diesen Datensatz in unsere Umgebung.
 ```{r}
 #| eval: false
 
-install.packages("tigerstats")
+# install.packages("tigerstats")
 ```
 
 ```{r}
