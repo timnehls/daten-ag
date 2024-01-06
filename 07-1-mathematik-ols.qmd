@@ -24,7 +24,9 @@ Die Summe aller Quadrate ist folglich $\sum\limits_{i=1}^{N}(y_i-\hat{y}_i)^2$. 
 
 Nun wollen wir $a$ und $b$ berechnen, so dass der Abstand der Punkte zur Geraden minimal wird, also müssen wir nach der vorherigen Umformulierung die Summe aller Quadrate minimieren.
 
-**a berechnen**
+------------------------------------------------------------------------
+
+**1) a berechnen**
 
 Um den Wert für $a$ zu berechnen, für den der Term $r(a,b)$ minimal wird, müssen wir ihn nach $a$ ableiten und gleich 0 setzen.
 
@@ -68,7 +70,9 @@ $$
 \underline{\underline{a = \bar{y}-b\bar{x}}}
 $$
 
-**b berechnen**
+------------------------------------------------------------------------
+
+**2) b berechnen**
 
 Wir beginnen erneut mit unserer Formel für die Summe der Quadrate:
 

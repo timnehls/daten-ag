@@ -233,7 +233,8 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="ols_3.jpg" class="img-fluid"></p>
 <p>Die Summe aller Quadrate ist folglich <span class="math inline">\(\sum\limits_{i=1}^{N}(y_i-\hat{y}_i)^2\)</span>. Wir wissen: <span class="math inline">\(\hat{y}_i=a+bx_i\)</span>, also ist die Summe aller Quadrate <span class="math inline">\(\sum\limits_{i=1}^{N}(y_i-a-bx_i)^2\)</span>. Nennen wir diesen Term <span class="math inline">\(r(a,b)\)</span>.</p>
 <p>Nun wollen wir <span class="math inline">\(a\)</span> und <span class="math inline">\(b\)</span> berechnen, so dass der Abstand der Punkte zur Geraden minimal wird, also müssen wir nach der vorherigen Umformulierung die Summe aller Quadrate minimieren.</p>
-<p><strong>a berechnen</strong></p>
+<hr>
+<p><strong>1) a berechnen</strong></p>
 <p>Um den Wert für <span class="math inline">\(a\)</span> zu berechnen, für den der Term <span class="math inline">\(r(a,b)\)</span> minimal wird, müssen wir ihn nach <span class="math inline">\(a\)</span> ableiten und gleich 0 setzen.</p>
 <p><span class="math display">\[
 r(a,b) = \sum\limits_{i=1}^N (y_i-a-bx_i)^2
@@ -265,7 +266,8 @@ a = \frac{\sum\limits_{i=1}^N y_i}{N} - b \frac{\sum\limits_{i=1}^N x_i}{N}
 <p><span class="math display">\[
 \underline{\underline{a = \bar{y}-b\bar{x}}}
 \]</span></p>
-<p><strong>b berechnen</strong></p>
+<hr>
+<p><strong>2) b berechnen</strong></p>
 <p>Wir beginnen erneut mit unserer Formel für die Summe der Quadrate:</p>
 <p><span class="math display">\[
 r(a,b) = \sum\limits_{i=1}^N (y_i-a-bx_i)^2
