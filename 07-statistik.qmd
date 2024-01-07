@@ -6,6 +6,67 @@ Auch wenn diese AG nur eine Einführung in die Arbeit mit Daten bieten kann, ist
 
 ## Methode der kleinsten Quadrate/Ordinary Least Squares
 
-TODO
+Die Methode der kleinsten Quadrate erlaubt es uns, eine optimale Ausgleichsgerade $y = a + bx$ zu finden. Dabei wird die Gerade so gelegt, dass die Summe der Abstände aller Datenpunkte minimal wird:
 
-Zur mathematischen Erläuterung geht es [hier](07-1-mathematik-ols.qmd) lang.
+![](ols_intuition.png)
+
+Zur mathematischen Herleitung der Gleichung für diese Gerade geht es [hier](07-1-mathematik-ols.qmd) entlang.
+
+## Das lineare Modell und statistische Signifikanz
+
+Nun wissen wir, dass es eine Methode gibt, mit der wir eine Ausgleichsgerade durch Punkte legen können. Das hat einen Nutzen für uns, wenn wir den Zusammenhang zwischen zwei Variablen erkennen wollen.
+
+Simulieren wir einen Zusammenhang zwischen $x$ und $y$, indem wir Datenpunkte mit Koordinaten $x$ und $y$ erzeugen, die sich um die Gerade $y = \frac{1}{3}x$ herum befinden, wobei wir einen Fehlerterm verwenden, damit die Punkte nicht genau auf der Geraden liegen.
+
+```{r}
+library(tidyverse)
+
+set.seed(1) # Daten sollen immer gleich erzeugt werden
+
+x <- rnorm(n = 100, mean = 3, sd = 1)
+fehler <- rnorm(n = 100, mean = 0, sd = 0.5)
+y <- 1/3 * x + fehler
+
+# Ein Diagramm nur mit Angabe von x und y
+qplot(x, y) +
+  geom_smooth(method = "lm")
+```
+
+In diesem Fall haben wir folgenden Zusammenhang konstruiert: wenn $x$ um eine Einheit größer wird, nimmt $y$ um $\frac{1}{3}$ Einheit zu.
+
+Hätten wir diese Daten nicht selbst erzeugt, sondern aus der realen Welt entnommen, könnten wir uns jetzt fragen: gibt es in Wirklichkeit einen Zusammenhang zwischen $x$ und $y$? Das können wir natürlich nie zu 100 Prozent überprüfen, aber wir können testen, ob wir den Zusammenhang mit großer Sicherheit annehmen können.
+
+Dazu können wir in `R` mit der oben genannten *Methode der kleinsten Quadrate* die Ausgleichsgerade konstruieren und den sogenannten *p-Wert* für die Steigung dieser Geraden ablesen:
+
+```{r}
+ausgleichsgerade <- lm(y ~ x) # Konstruktion einer Ausgleichsgeraden
+
+ausgleichsgerade %>% 
+  summary() # Anzeige der Werte von a (Intercept) und b (x) für diese Gerade
+```
+
+Der p-Wert ist unter `Pr(>|t|)` angegeben. Vereinfacht gesagt gibt er an, wie wahrscheinlich es ist, dass die Steigung der Geraden mindestens so groß ist, wie sie durch die Methode der kleinsten Quadrate berechnet wurde. Die Mathematik dahinter ist [hier](07-2-mathematik-pwert.qmd) beschrieben (TODO).
+
+Liegt der p-Wert unter 0,05, dann sagt man, dass der Effekt von $x$ auf $y$ *signifikant* ist. In diesem Fall ist der p-Wert deutlich unter 0,05. Daher können wir annehmen, dass es einen Effekt von $x$ auf $y$ gibt.
+
+Ändern wir unsere Daten so, dass die Datenpunkte deutlich weiter um die Gerade herum gestreut sind:
+
+```{r}
+set.seed(1)
+
+x <- rnorm(n = 100, mean = 3, sd = 1)
+fehler <- rnorm(n = 100, mean = 0, sd = 5) # Der Fehler wird größer
+y <- 1/3 * x + fehler
+
+qplot(x, y) +
+  geom_smooth(method = "lm")
+```
+
+```{r}
+ausgleichsgerade <- lm(y ~ x)
+
+ausgleichsgerade %>% 
+  summary()
+```
+
+In diesem Fall liegt der p-Wert bei 0,544, was deutlich über 0,05 ist. Wir können also nicht ablehnen, dass es in Wirklichkeit keinen Effekt von $x$ auf $y$ gibt.

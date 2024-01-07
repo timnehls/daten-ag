@@ -1,5 +1,5 @@
 ---
-title: "4E Mathematik des Kleinste-Quadrate-Schätzers"
+title: "4E1 Herleitung des Kleinste-Quadrate-Schätzers"
 ---
 
 Um zu verstehen, wie die *Methode der kleinsten Quadrate* funktioniert, ist es sinnvoll, sich der Sache mathematisch zu nähern.
