@@ -226,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Wir wollen durch unsere Datenpunkte eine Gerade so legen, dass sie in der Mitte durch unsere Punkte geht. Dabei können wir die Datenpunkte als Punkte <span class="math inline">\(P_i(x_i|y_i)\)</span> im zweidimensionalen Koordinatensystem beschreiben. Für die Gerade können wir dann die Funktion <span class="math inline">\(\hat{y}=a+bx\)</span> formulieren, wobei wir <span class="math inline">\(a\)</span> und <span class="math inline">\(b\)</span> mithilfe unserer Punkte berechnen müssen.</p>
 <p>Schauen wir uns einen Punkt <span class="math inline">\(P_n(x_n|y_n)\)</span> an. Er liegt mit einem gewissen Abstand zu der später aufgestellten Gerade (der Abstand kann auch 0 sein).</p>
 <p><img src="ols_2.jpg" class="img-fluid"></p>
-<p>Wir können (das ist später hilfreich) diesen Abstand auch als Quadrat aufmalen, denn ansonsten müssen wir mit Beträgen arbeiten. Das geht, denn wenn wir die Summe der Quadrate minimieren, minimieren wir auch die Abstände der Punkte zur Ausgleichsgeraden.</p>
+<p>Wir können (das ist später hilfreich) diesen Abstand durch ein Quadrat ersetzen, denn ansonsten müssen wir mit Beträgen arbeiten. Das geht, denn wenn wir die Summe der Quadrate minimieren, minimieren wir auch die Abstände der Punkte zur Ausgleichsgeraden.</p>
 <p><img src="ols_1.jpg" class="img-fluid"></p>
 <p>Wir können die Fläche des Quadrats schreiben als <span class="math inline">\((y_n-\hat{y}_n)^2\)</span>. Dabei ist <span class="math inline">\(\hat{y}_n\)</span> der y-Wert der Ausgleichsgeraden an der Stelle <span class="math inline">\(x_n\)</span> (unsere Gerade hat die Gleichung <span class="math inline">\(\hat{y}=a+bx\)</span>).</p>
 <p>Nummerieren wir nun die <span class="math inline">\(N=4\)</span> Quadrate von 1 bis 4:</p>
@@ -266,6 +266,7 @@ a = \frac{\sum\limits_{i=1}^N y_i}{N} - b \frac{\sum\limits_{i=1}^N x_i}{N}
 <p><span class="math display">\[
 \underline{\underline{a = \bar{y}-b\bar{x}}}
 \]</span></p>
+<p><span class="math inline">\(\bar{y}\)</span> bzw. <span class="math inline">\(\bar{x}\)</span> beschreiben hier den Mittelwert von <span class="math inline">\(y\)</span> bzw. <span class="math inline">\(x\)</span>.</p>
 <hr>
 <p><strong>2) b berechnen</strong></p>
 <p>Wir beginnen erneut mit unserer Formel für die Summe der Quadrate:</p>
@@ -300,6 +301,8 @@ b = \frac{\sum\limits_{i=1}^{N} (x_iy_i-x_i\bar{y})}{\sum\limits_{i=1}^{N} (x_i^
 <p><span class="math display">\[
 \underline{\underline{b = \frac{\sum\limits_{i=1}^N x_iy_i - n\bar{x}\bar{y}}{\sum\limits_{i=1}^N x_i^2 - n\bar{x}^2}}}
 \]</span></p>
+<p>Man kann die Formel für <span class="math inline">\(b\)</span> so umstellen, das es leichter gelesen werden kann: <span class="math inline">\(b =\frac{\sum\limits_{i=1}^N (x_i-\bar{x})(y_i-\bar{y})}{\sum\limits_{i=1}^N (x_i-\bar{x})^2}\)</span>.</p>
+<p>Nun können wir die “optimale” Ausgleichsgerade finden, indem wir die Werte für <span class="math inline">\(x_i\)</span> und <span class="math inline">\(y_i\)</span> einsetzen.</p>
 
 
 

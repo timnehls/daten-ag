@@ -10,7 +10,7 @@ Schauen wir uns einen Punkt $P_n(x_n|y_n)$ an. Er liegt mit einem gewissen Absta
 
 ![](ols_2.jpg)
 
-Wir können (das ist später hilfreich) diesen Abstand auch als Quadrat aufmalen, denn ansonsten müssen wir mit Beträgen arbeiten. Das geht, denn wenn wir die Summe der Quadrate minimieren, minimieren wir auch die Abstände der Punkte zur Ausgleichsgeraden.
+Wir können (das ist später hilfreich) diesen Abstand durch ein Quadrat ersetzen, denn ansonsten müssen wir mit Beträgen arbeiten. Das geht, denn wenn wir die Summe der Quadrate minimieren, minimieren wir auch die Abstände der Punkte zur Ausgleichsgeraden.
 
 ![](ols_1.jpg)
 
@@ -70,6 +70,8 @@ $$
 \underline{\underline{a = \bar{y}-b\bar{x}}}
 $$
 
+$\bar{y}$ bzw. $\bar{x}$ beschreiben hier den Mittelwert von $y$ bzw. $x$.
+
 ------------------------------------------------------------------------
 
 **2) b berechnen**
@@ -117,3 +119,7 @@ $$
 $$
 \underline{\underline{b = \frac{\sum\limits_{i=1}^N x_iy_i - n\bar{x}\bar{y}}{\sum\limits_{i=1}^N x_i^2 - n\bar{x}^2}}}
 $$
+
+Man kann die Formel für $b$ so umstellen, das es leichter gelesen werden kann: $b =\frac{\sum\limits_{i=1}^N (x_i-\bar{x})(y_i-\bar{y})}{\sum\limits_{i=1}^N (x_i-\bar{x})^2}$.
+
+Nun können wir die "optimale" Ausgleichsgerade finden, indem wir die Werte für $x_i$ und $y_i$ einsetzen.
